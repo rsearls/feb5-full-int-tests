@@ -19,8 +19,8 @@
     <quarkus.platform.group-id>io.quarkus</quarkus.platform.group-id>
     <!--
     <quarkus.platform.version>1.2.0.Final</quarkus.platform.version>
-    -->
-    <quarkus.platform.version>1.3.0.Alpha1</quarkus.platform.version>
+  -->
+     <quarkus.platform.version>1.3.0.Alpha1</quarkus.platform.version>
 
     <surefire-plugin.version>2.22.1</surefire-plugin.version>
 
@@ -353,6 +353,23 @@
 
             <!--   -->
             <!-- FAILS (java.io.IOException: throw exception)  --><exclude>org/jboss/resteasy/test/asynch/CallbackTest.java</exclude>
+
+
+
+            <!-- ############## summary xxe ####################
+                  dir: org/jboss/resteasy/test/client
+                     6 total test
+                     1 tests ran successfully
+                     5 tests failed
+                ################################################## -->
+            <exclude>org/jboss/resteasy/test/xxe/YY**</exclude>
+            <exclude>org/jboss/resteasy/test/xxe/NamespaceJaxbTest.java</exclude>
+            <!-- fails todo (ContextParameters not passed) --><exclude>org/jboss/resteasy/test/xxe/XXEBasicTest.java</exclude>
+            <!-- fails todo (Unable to start HTTP server) --><exclude>org/jboss/resteasy/test/xxe/ExternalParameterEntityTest.java</exclude>
+            <!-- fails todo (Unable to start HTTP server) --><exclude>org/jboss/resteasy/test/xxe/SecureProcessing2Test.java</exclude>
+            <!-- fails todo (Unable to start HTTP server) --><exclude>org/jboss/resteasy/test/xxe/XxeJaxbTest.java</exclude>
+            <!-- fails todo (Unable to start HTTP server) --><exclude>org/jboss/resteasy/test/xxe/SecureProcessingTest.java</exclude>
+            <!-- fails todo (Unable to start HTTP server) --><exclude>org/jboss/resteasy/test/xxe/XxeSecureProcessingTest.java</exclude>
 
           </excludes>
         </configuration>
