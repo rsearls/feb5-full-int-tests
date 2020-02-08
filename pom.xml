@@ -17,11 +17,11 @@
     <!-- replace ref to quarkus-universe-bom to be quarkus-bom -->
     <quarkus.platform.artifact-id>quarkus-universe-bom</quarkus.platform.artifact-id>
     <quarkus.platform.group-id>io.quarkus</quarkus.platform.group-id>
-
-    <quarkus.platform.version>1.2.0.Final</quarkus.platform.version>
     <!--
-    <quarkus.platform.version>1.3.0.Alpha1</quarkus.platform.version>
+    <quarkus.platform.version>1.2.0.Final</quarkus.platform.version>
     -->
+    <quarkus.platform.version>1.3.0.Alpha1</quarkus.platform.version>
+
     <surefire-plugin.version>2.22.1</surefire-plugin.version>
 
     <!-- ############# properties added to orig ############## -->
@@ -256,6 +256,14 @@
           </systemProperties>
 
           <excludes>
+            <!-- ############## summary core/basic ####################
+                dir: org/jboss/resteasy/test/core/basic
+                  21 total test
+                  13 tests ran successfully
+                      - 3 required upgrade to 1.3.0.Alpha1
+                  8 tests failed
+                    - 6 use web.xml
+                 ################################################## -->
             <!-- run passing test -->
             <exclude>org/jboss/resteasy/test/core/basic/ByeTest.java</exclude>
 
@@ -266,17 +274,20 @@
             <exclude>org/jboss/resteasy/test/core/basic/AcceptLanguagesTest.java</exclude>
             <exclude>org/jboss/resteasy/test/core/basic/ApplicationConfigTest.java</exclude>
             <exclude>org/jboss/resteasy/test/core/basic/ApplicationPropertiesConfigPropertyApplicationInjectionTest.java</exclude>
+            <!--
+              Passes with code change
+            --><exclude>org/jboss/resteasy/test/core/basic/InternalDispatcherTest.java</exclude>
+            <!-- Passes requires upgrade to 1.3.0.Alpha1 --><exclude>org/jboss/resteasy/test/core/basic/AnnotationInheritanceGenericsTest.java</exclude>
+            <!-- Passes requires upgrade to 1.3.0.Alpha1 --><exclude>org/jboss/resteasy/test/core/basic/PartialAnnotationResourceTest.java</exclude>
+            <!-- Passes requires upgrade to 1.3.0.Alpha1 --><exclude>org/jboss/resteasy/test/core/basic/AnnotationInheritanceTest.java</exclude>
 
-
-            <!-- fails (method is not visible from class loader) --><exclude>org/jboss/resteasy/test/core/basic/AnnotationInheritanceGenericsTest.java</exclude>
-            <!-- fails (method is not visible from class loader) --><exclude>org/jboss/resteasy/test/core/basic/PartialAnnotationResourceTest.java</exclude>
-            <!-- fails (method is not visible from class loader) --><exclude>org/jboss/resteasy/test/core/basic/AnnotationInheritanceTest.java</exclude>
 
             <!-- fails web.xml  --><exclude>org/jboss/resteasy/test/core/basic/InvalidMediaTypeTest.java</exclude>
             <!-- fails  web.xml --><exclude>org/jboss/resteasy/test/core/basic/ApplicationFilterTest.java</exclude>
             <!-- fails  web.xml --> <exclude>org/jboss/resteasy/test/core/basic/NoApplicationSubclassTest.java</exclude>
             <!-- fails  web.xml --><exclude>org/jboss/resteasy/test/core/basic/FileExtensionMappingTest.java</exclude>
             <!-- fails  web.xml --><exclude>org/jboss/resteasy/test/core/basic/AppConfigTest.java</exclude>
+            <!-- fails web.xml --><exclude>org/jboss/resteasy/test/core/basic/ApplicationTest.java</exclude>
             <!--
               Quarkus does not write to log files.
               The proper number of error msgs are written to the terminal.
@@ -287,18 +298,24 @@
               Some strange interaction between quarkus-arquillian and interface proxy class
               being built.
             --> <exclude>org/jboss/resteasy/test/core/basic/ProviderInjectionTest.java</exclude>
-            <!--
-              Passes with code change
-            --><exclude>org/jboss/resteasy/test/core/basic/InternalDispatcherTest.java</exclude>
-            <!-- fails web.xml --><exclude>org/jboss/resteasy/test/core/basic/ApplicationTest.java</exclude>
 
+
+
+            <!-- ############## summary asynch ####################
+                dir: org/jboss/resteasy/test/asynch
+                  14 total test
+                  3 tests ran successfully
+                  11 tests failed
+                    - 4 fails .. does not handle path http://localhost:8081/
+                 ################################################## -->
             <exclude>org/jboss/resteasy/test/asynch/XX**</exclude>
             <exclude>org/jboss/resteasy/test/asynch/ComprehensiveJaxrsTest.java</exclude>
             <exclude>org/jboss/resteasy/test/asynch/JaxrsAsyncServletTest.java</exclude>
             <exclude>org/jboss/resteasy/test/asynch/AsyncGenericEntityTest.java</exclude>
 
-            <!-- FAILS todo <exclude>org/jboss/resteasy/test/asynch/AsyncInjectionTest.java</exclude>
-           -->
+            <!-- FAILS todo (https://github.com/quarkusio/quarkus/issues/7087 quarkus-arquillian
+                  having issue process app using CompletionStage)  --><exclude>org/jboss/resteasy/test/asynch/AsyncInjectionTest.java</exclude>
+
             <!-- FAILS todo (filed bug
               https://github.com/quarkusio/quarkus/issues/7084 quarkus-arquillian does
               call @Before unless @RunAsClient is present)
