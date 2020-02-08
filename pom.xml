@@ -33,6 +33,8 @@
     <version.io.undertow>2.0.23.Final</version.io.undertow>
     <version.eclipse.jdt>3.5.0</version.eclipse.jdt>
     <version.testng>6.9.9</version.testng>
+    <version.org.jboss.resteasy.tracing.api>1.0.0.Beta4</version.org.jboss.resteasy.tracing.api>
+    <version.com.fasterxml.jackson>2.10.1</version.com.fasterxml.jackson>
   </properties>
 
   <dependencyManagement>
@@ -58,6 +60,22 @@
 
   <dependencies>
 
+    <!-- todo 8 -->
+    <dependency>
+      <groupId>org.jboss.resteasy</groupId>
+      <artifactId>resteasy-tracing-api</artifactId>
+      <version>${version.org.jboss.resteasy.tracing.api}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>${version.com.fasterxml.jackson}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.jboss.resteasy</groupId>
+      <artifactId>resteasy-wadl</artifactId>
+      <version>${resteasy-version}</version> <!-- in the bom ${resteasy.version} -->
+    </dependency>
     <!-- todo 7 -->
     <dependency>
       <groupId>org.jboss.resteasy</groupId>
@@ -442,6 +460,25 @@
             <!-- fail todo (no errors no tests run) --><exclude>org/jboss/resteasy/test/response/VariantsTest.java</exclude>
             <!-- fail todo (no error. test does not run.  May not be handling @Rule)  --><exclude>org/jboss/resteasy/test/response/ResponseTest.java</exclude>
             <!-- fail todo (no error. test does not run. May not handle @Category) --><exclude>org/jboss/resteasy/test/response/DuplicitePathTest.java</exclude>
+
+
+            <!-- ############## summary jsapi, wadl, util, tracing  ####################
+                dir: org/jboss/resteasy/test/jsapi
+                     org/jboss/resteasy/test/wadl
+                     org/jboss/resteasy/test/util
+                     org/jboss/resteasy/test/tracing
+                    6 total test
+                    2 tests ran successfully
+                    4 tests failed
+              ################################################## -->
+            <!-- fails todo web.xml --><exclude>org/jboss/resteasy/test/jsapi/JSAPIGetBasicJsapiHandlingScriptTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/wadl/DeploymentTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/util/DynamicFeatureContextDelegateTest.java</exclude>
+
+            <!-- fails todo (not standard arquillian) --><exclude>org/jboss/resteasy/test/tracing/OnDemandTracingTest.java</exclude>
+            <!-- fails todo (not standard arquillian) --><exclude>org/jboss/resteasy/test/tracing/JsonFormattedTracingInfoTest.java</exclude>
+            <!-- fails todo (not standard arquillian) --><exclude>org/jboss/resteasy/test/tracing/BasicTracingTest.java</exclude>
+
 
           </excludes>
         </configuration>
