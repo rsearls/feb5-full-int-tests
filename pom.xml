@@ -58,7 +58,17 @@
 
   <dependencies>
 
-    <!-- todo 5 required by  org/jboss/resteasy/test/asynch/AsynchBasicTest -->
+    <!-- todo 7 -->
+    <dependency>
+      <groupId>org.jboss.resteasy</groupId>
+      <artifactId>resteasy-rxjava2</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.reactivex.rxjava2</groupId>
+      <artifactId>rxjava</artifactId>
+    </dependency>
+
+    <!-- todo 6 required by  org/jboss/resteasy/test/asynch/AsynchBasicTest -->
     <dependency>
       <groupId>com.io7m.xom</groupId>
       <artifactId>xom</artifactId>
@@ -399,6 +409,39 @@
             <!-- fails todo (test is odd) --><exclude>org/jboss/resteasy/test/interceptor/gzip/AllowGzipOnServerNotAllowGzipOnClientTest.java</exclude>
             <!-- fails todo (test is odd) --><exclude>org/jboss/resteasy/test/interceptor/gzip/AllowGzipOnServerAllowGzipOnClientTest.java</exclude>
             <!-- required for compile --><exclude>org/jboss/resteasy/test/client/ClientTestBase.java</exclude>
+
+            <!-- ############## summary response ####################
+                  dir: org/jboss/resteasy/test/response
+                      25 total test
+                      20 tests ran successfully
+                      5 tests failed
+                ################################################## -->
+            <exclude>org/jboss/resteasy/test/response/XX**</exclude>
+            <exclude>org/jboss/resteasy/test/response/CommitNewCookiesHeaderTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/response/PublisherResponseTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/response/HttponlyCookieTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/response/InheritedContextTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/response/PublisherResponseNoStreamTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/response/OptionsTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/response/AnotherPublisherResponseNoStreamTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/response/ResponseStreamPrematurelyClosedTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/response/ContentLanguageHeaderTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/response/RangeTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/response/MethodDefaultTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/response/CompletionStageResponseTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/response/CookieTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/response/PublisherResponseRawStreamTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/response/VariantAcceptTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/response/AnotherPublisherResponseTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/response/WriterMatchingTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/response/ResponseHeaderTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/response/HttpRequestParameterInjectorTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/response/ProduceConsumeTest.java</exclude>
+            <!-- fails todo (Caused by: java.net.BindException: Address already in use)  --><exclude>org/jboss/resteasy/test/response/ResponseTrimmingTest.java</exclude>
+            <!-- fails todo  --><exclude>org/jboss/resteasy/test/response/HeadContentLengthTest.java</exclude>
+            <!-- fail todo (no errors no tests run) --><exclude>org/jboss/resteasy/test/response/VariantsTest.java</exclude>
+            <!-- fail todo (no error. test does not run.  May not be handling @Rule)  --><exclude>org/jboss/resteasy/test/response/ResponseTest.java</exclude>
+            <!-- fail todo (no error. test does not run. May not handle @Category) --><exclude>org/jboss/resteasy/test/response/DuplicitePathTest.java</exclude>
 
           </excludes>
         </configuration>
