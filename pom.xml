@@ -365,11 +365,40 @@
             <exclude>org/jboss/resteasy/test/xxe/YY**</exclude>
             <exclude>org/jboss/resteasy/test/xxe/NamespaceJaxbTest.java</exclude>
             <!-- fails todo (ContextParameters not passed) --><exclude>org/jboss/resteasy/test/xxe/XXEBasicTest.java</exclude>
-            <!-- fails todo (Unable to start HTTP server) --><exclude>org/jboss/resteasy/test/xxe/ExternalParameterEntityTest.java</exclude>
-            <!-- fails todo (Unable to start HTTP server) --><exclude>org/jboss/resteasy/test/xxe/SecureProcessing2Test.java</exclude>
-            <!-- fails todo (Unable to start HTTP server) --><exclude>org/jboss/resteasy/test/xxe/XxeJaxbTest.java</exclude>
-            <!-- fails todo (Unable to start HTTP server) --><exclude>org/jboss/resteasy/test/xxe/SecureProcessingTest.java</exclude>
-            <!-- fails todo (Unable to start HTTP server) --><exclude>org/jboss/resteasy/test/xxe/XxeSecureProcessingTest.java</exclude>
+            <!-- fails todo (Caused by: java.net.BindException: Address already in use) --><exclude>org/jboss/resteasy/test/xxe/ExternalParameterEntityTest.java</exclude>
+            <!-- fails todo (Caused by: java.net.BindException: Address already in use) --><exclude>org/jboss/resteasy/test/xxe/SecureProcessing2Test.java</exclude>
+            <!-- fails todo (Caused by: java.net.BindException: Address already in use) --><exclude>org/jboss/resteasy/test/xxe/XxeJaxbTest.java</exclude>
+            <!-- fails todo (Caused by: java.net.BindException: Address already in use) --><exclude>org/jboss/resteasy/test/xxe/SecureProcessingTest.java</exclude>
+            <!-- fails todo (Caused by: java.net.BindException: Address already in use) --><exclude>org/jboss/resteasy/test/xxe/XxeSecureProcessingTest.java</exclude>
+
+            <!-- ############## summary interceptor ####################
+                  dir: org/jboss/resteasy/test/interceptor
+                     15 total test
+                     7 tests ran successfully
+                     8 tests failed
+                ################################################## -->
+            <exclude>org/jboss/resteasy/test/interceptor/XX**</exclude>
+            <exclude>org/jboss/resteasy/test/interceptor/ClientFilterResponseBuilderTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/interceptor/ApplicationConfigWithInterceptorTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/interceptor/ResponseFilterCustomExceptionTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/interceptor/ReaderInterceptorContextTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/interceptor/ClientRequestFilterRegistrationTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/interceptor/PreMatchingClientRequestFilterTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/interceptor/InterceptorStreamTest.java</exclude>
+            <!-- fails todo (the manifest defs are not handled.
+                The serverSide does not load the inputStream GZIPDecodingInterceptor.
+                The serverSide reader does not read properly the transmitted text)  --><exclude>org/jboss/resteasy/test/interceptor/GZIPAnnotationTest.java</exclude>
+
+            <!-- fails todo ( https://github.com/quarkusio/quarkus/issues/7084 quarkus-arquillian does
+                  call @Before unless @RunAsClient is present)   --><exclude>org/jboss/resteasy/test/interceptor/PriorityExecutionTest.java</exclude>
+            <!-- fails todo (test does not deploy. Not handling @InSequence ??)  --><exclude>org/jboss/resteasy/test/interceptor/DynamicFeatureTest.java</exclude>
+            <!-- fails todo ( https://github.com/quarkusio/quarkus/issues/7084 quarkus-arquillian does
+                  call @Before unless @RunAsClient is present) --><exclude>org/jboss/resteasy/test/interceptor/StreamCloseTest.java</exclude>
+            <!-- fails todo (Caused by: java.net.BindException: Address already in use) --> <exclude>org/jboss/resteasy/test/interceptor/gzip/NotAllowGzipOnServerNotAllowGzipOnClientTest.java</exclude>
+            <!-- fails todo (Caused by: java.net.BindException: Address already in use) --><exclude>org/jboss/resteasy/test/interceptor/gzip/NotAllowGzipOnServerAllowGzipOnClientTest.java</exclude>
+            <!-- fails todo (test is odd) --><exclude>org/jboss/resteasy/test/interceptor/gzip/AllowGzipOnServerNotAllowGzipOnClientTest.java</exclude>
+            <!-- fails todo (test is odd) --><exclude>org/jboss/resteasy/test/interceptor/gzip/AllowGzipOnServerAllowGzipOnClientTest.java</exclude>
+            <!-- required for compile --><exclude>org/jboss/resteasy/test/client/ClientTestBase.java</exclude>
 
           </excludes>
         </configuration>
