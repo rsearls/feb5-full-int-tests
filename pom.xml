@@ -60,6 +60,15 @@
 
   <dependencies>
 
+    <!-- todo 9 -->
+    <dependency>
+      <groupId>org.jboss.resteasy</groupId>
+      <artifactId>resteasy-client-microprofile</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.microprofile.rest.client</groupId>
+      <artifactId>microprofile-rest-client-api</artifactId>
+    </dependency>
     <!-- todo 8 -->
     <dependency>
       <groupId>org.jboss.resteasy</groupId>
@@ -458,6 +467,7 @@
             <!-- fails todo (Caused by: java.net.BindException: Address already in use)  --><exclude>org/jboss/resteasy/test/response/ResponseTrimmingTest.java</exclude>
             <!-- fails todo  --><exclude>org/jboss/resteasy/test/response/HeadContentLengthTest.java</exclude>
             <!-- fail todo (no errors no tests run) --><exclude>org/jboss/resteasy/test/response/VariantsTest.java</exclude>
+
             <!-- fail todo (no error. test does not run.  May not be handling @Rule)  --><exclude>org/jboss/resteasy/test/response/ResponseTest.java</exclude>
             <!-- fail todo (no error. test does not run. May not handle @Category) --><exclude>org/jboss/resteasy/test/response/DuplicitePathTest.java</exclude>
 
@@ -478,6 +488,42 @@
             <!-- fails todo (not standard arquillian) --><exclude>org/jboss/resteasy/test/tracing/OnDemandTracingTest.java</exclude>
             <!-- fails todo (not standard arquillian) --><exclude>org/jboss/resteasy/test/tracing/JsonFormattedTracingInfoTest.java</exclude>
             <!-- fails todo (not standard arquillian) --><exclude>org/jboss/resteasy/test/tracing/BasicTracingTest.java</exclude>
+
+
+            <!-- ############## summary stream, sourceProvider, exception  ####################
+                dir: org/jboss/resteasy/test/stream
+                     org/jboss/resteasy/test/sourceProvider
+                     org/jboss/resteasy/test/exception
+                     13 total test
+                     12 tests ran successfully
+                     1 tests failed
+              ################################################## -->
+            <exclude>org/jboss/resteasy/test/stream/StreamRawFlowableRxJava2Test.java</exclude>
+            <exclude>org/jboss/resteasy/test/stream/StreamRawObservableRxJava2Test.java</exclude>
+            <!-- fails todo
+                  org.jboss.arquillian.core.impl.ObserverImpl 89
+                  org.jboss.arquillian.container.spi.client.container.DeploymentException: Unable to start the runtime runner
+                  java.lang.RuntimeException: io.quarkus.builder.BuildException:
+                  Build failure: Build failed due to errors
+                     [error]: Build step io.quarkus.resteasy.server.common.deployment.ResteasyServerCommonProcessor
+                            #build threw an exception: java.lang.RuntimeException:
+                            Multiple classes ( org.jboss.resteasy.utils.TestApplication,
+                            org.jboss.resteasy.test.sourceProvider.resource.SourceProviderApp) have been annotated with
+                            @ApplicationPath which is currently not supported
+                     at io.quarkus.resteasy.server.common.deployment.ResteasyServerCommonProcessor.createMultipleApplicationsException(ResteasyServerCommonProcessor.java:752)
+                     at io.quarkus.resteasy.server.common.deployment.ResteasyServerCommonProcessor.build(ResteasyServerCommonProcessor.java:178)
+            --><exclude>org/jboss/resteasy/test/sourceProvider/SourceProviderTest.java</exclude>
+
+            <exclude>org/jboss/resteasy/test/exception/ExceptionMapperApplicationRuntimeExceptionTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/exception/ExceptionMapperTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/exception/ExceptionHandlingTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/exception/ExceptionMapperWebRuntimeExceptionTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/exception/AbstractExceptionMapperTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/exception/WebApplicationExceptionTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/exception/ResponseExceptionMapperRuntimeExceptionTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/exception/ClosedResponseHandlingTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/exception/ExceptionMapperCustomRuntimeExceptionTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/exception/ExceptionMapperInjectionTest.java</exclude>
 
 
           </excludes>
