@@ -35,6 +35,10 @@
     <version.testng>6.9.9</version.testng>
     <version.org.jboss.resteasy.tracing.api>1.0.0.Beta4</version.org.jboss.resteasy.tracing.api>
     <version.com.fasterxml.jackson>2.10.1</version.com.fasterxml.jackson>
+    <version.org.wildfly.extras.creaper>1.6.1</version.org.wildfly.extras.creaper>
+    <version.jboss.dmr>1.5.0.Final</version.jboss.dmr>
+    <version.wildfly.controller.client>7.0.0.Final</version.wildfly.controller.client>
+    <version.jboss.threads>2.3.2.Final</version.jboss.threads>
   </properties>
 
   <dependencyManagement>
@@ -60,6 +64,38 @@
 
   <dependencies>
 
+    <!-- todo 11 -->
+    <dependency>
+      <groupId>org.wildfly.core</groupId>
+      <artifactId>wildfly-controller-client</artifactId>
+      <version>${version.wildfly.controller.client}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.wildfly.core</groupId>
+      <artifactId>wildfly-cli</artifactId>
+      <version>${version.wildfly.controller.client}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.jboss.threads</groupId>
+      <artifactId>jboss-threads</artifactId>
+      <version>${version.jboss.threads}</version>
+    </dependency>
+
+    <!-- todo 10 -->
+    <dependency>
+      <groupId>org.jboss</groupId>
+      <artifactId>jboss-dmr</artifactId>
+      <version>${version.jboss.dmr}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.wildfly.extras.creaper</groupId>
+      <artifactId>creaper-core</artifactId>
+      <version>${version.org.wildfly.extras.creaper}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.httpcomponents</groupId>
+      <artifactId>httpasyncclient</artifactId>
+    </dependency>
     <!-- todo 9 -->
     <dependency>
       <groupId>org.jboss.resteasy</groupId>
@@ -525,6 +561,172 @@
             <exclude>org/jboss/resteasy/test/exception/ExceptionMapperCustomRuntimeExceptionTest.java</exclude>
             <exclude>org/jboss/resteasy/test/exception/ExceptionMapperInjectionTest.java</exclude>
 
+
+
+            <!-- ############## core/smoke, client  ####################
+                dir: org/jboss/resteasy/test/core/smoke
+                     org/jboss/resteasy/test/client
+                      65 total test
+                      48 tests ran successfully
+                      17 tests failed
+              ################################################## -->
+            <exclude>org/jboss/resteasy/test/core/smoke/ResourceWithInterfaceTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/core/smoke/ResourceWithMultipleInterfacesTest.java</exclude>
+            <!-- fails todo (Caused by: java.net.BindException: Address already in use) --><exclude>org/jboss/resteasy/test/core/smoke/WireSmokeTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/client/ClientDynamicFeaturesTest.java</exclude>
+            <!-- fails todo
+                  java.util.ServiceConfigurationError:
+                    org.apache.logging.log4j.spi.Provider:
+                    org.apache.logging.log4j.core.impl.Log4jProvider
+                  not a subtype
+             --> <exclude>org/jboss/resteasy/test/client/ClientBuilderTest.java</exclude>
+
+            <exclude>org/jboss/resteasy/test/client/NullEntityTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/client/AbortMessageTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/client/JAXRS21PatchTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/client/ClientFormParamTest.java</exclude>
+            <!-- fails todo
+                java.io.IOException: java.net.ConnectException:
+                WFLYPRT0053: Could not connect to
+                remote+http://localhost:9990. The connection failed
+            --><exclude>org/jboss/resteasy/test/client/EntityBufferingInFileTest.java</exclude>
+
+            <!-- fails todo
+                  java.util.ServiceConfigurationError:
+                    org.apache.logging.log4j.spi.Provider:
+                    org.apache.logging.log4j.core.impl.Log4jProvider
+                  not a subtype
+             --><exclude>org/jboss/resteasy/test/client/InputStreamTest.java</exclude>
+
+            <exclude>org/jboss/resteasy/test/client/PrimitiveTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/client/SmokeParamTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/client/ClientCacheInterceptorTest.java</exclude>
+            <!-- fails todo (org.junit.ComparisonFailure:
+                  expected:<[default]> but was:<[<!DOCTYPE html>
+                  org.jboss.resteasy.test.client.ClientInvocationBuilderTest.testBuildMethodResetEntity(ClientInvocationBuilderTest.java:111))
+            --><exclude>org/jboss/resteasy/test/client/ClientInvocationBuilderTest.java</exclude>
+
+            <exclude>org/jboss/resteasy/test/client/RedirectTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/client/ClientExecutorShutdownTest.java</exclude>
+            <!-- fails todo
+                  java.util.ServiceConfigurationError:
+                    org.apache.logging.log4j.spi.Provider:
+                    org.apache.logging.log4j.core.impl.Log4jProvider
+                  not a subtype
+             --><exclude>org/jboss/resteasy/test/client/ParameterListTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/client/IndirectInvocationTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/client/LinkHeaderTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/client/SyncInvokeTest.java</exclude>
+            <!-- fails todo
+                  java.util.ServiceConfigurationError:
+                    org.apache.logging.log4j.spi.Provider:
+                    org.apache.logging.log4j.core.impl.Log4jProvider
+                  not a subtype
+             --><exclude>org/jboss/resteasy/test/client/ClientResponseRedirectTest.java</exclude>
+
+            <exclude>org/jboss/resteasy/test/client/TimeoutTest.java</exclude>
+            <!-- fails todo
+                  java.util.ServiceConfigurationError:
+                    org.apache.logging.log4j.spi.Provider:
+                    org.apache.logging.log4j.core.impl.Log4jProvider
+                  not a subtype
+             --><exclude>org/jboss/resteasy/test/client/AsyncTimeoutExceptionsTest.java</exclude>
+
+            <exclude>org/jboss/resteasy/test/client/AsyncInvokeTest.java</exclude>
+            <!-- fails todo
+                  java.util.ServiceConfigurationError:
+                    org.apache.logging.log4j.spi.Provider:
+                    org.apache.logging.log4j.core.impl.Log4jProvider
+                  not a subtype
+             --><exclude>org/jboss/resteasy/test/client/InContainerClientBenchTest.java</exclude>
+
+            <!-- fails todo
+                  java.util.ServiceConfigurationError:
+                    org.apache.logging.log4j.spi.Provider:
+                    org.apache.logging.log4j.core.impl.Log4jProvider
+                  not a subtype
+            --><exclude>org/jboss/resteasy/test/client/ChunkedTransferEncodingTest.java</exclude>
+
+            <exclude>org/jboss/resteasy/test/client/InputStreamResourceTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/client/ClientCacheTest.java</exclude>
+            <!-- fails todo
+                java.util.ServiceConfigurationError:
+                    org.apache.logging.log4j.spi.Provider:
+                    org.apache.logging.log4j.core.impl.Log4jProvider
+                  not a subtype
+           --> <exclude>org/jboss/resteasy/test/client/TraceTest.java</exclude>
+
+            <!-- fails todo (java.io.IOException:
+                java.net.ConnectException: WFLYPRT0053: Could not connect to
+                remote+http://localhost:9990. The connection failed) --><exclude>org/jboss/resteasy/test/client/RxInvokerTest.java</exclude>
+
+            <exclude>org/jboss/resteasy/test/client/ClientProviderTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/client/ClientResponseWithEntityTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/client/GenericReturnTypeTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/client/ClientCookieTest.java</exclude>
+            <!-- OK (tagged not a functioning test)--> <exclude>org/jboss/resteasy/test/client/AsyncBenchTest.java</exclude>
+
+            <exclude>org/jboss/resteasy/test/client/WebTargetTest.java</exclude>
+
+
+            <exclude>org/jboss/resteasy/test/client/proxy/ContentLanguageProxyTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/client/proxy/GenericProxyTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/client/proxy/ClientResponseFailureTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/client/proxy/ProxyJaxbResourceIntfTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/client/proxy/ProxyInputStreamTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/client/proxy/ProxyCastingTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/client/proxy/DefaultMediaTypesTest.java</exclude>
+
+            <exclude>org/jboss/resteasy/test/client/proxy/MediaTypeCaseSensitivityTest.java</exclude>
+
+            <!-- fails todo
+                java.util.ServiceConfigurationError:
+                    org.apache.logging.log4j.spi.Provider:
+                    org.apache.logging.log4j.core.impl.Log4jProvider
+                  not a subtype
+           --><exclude>org/jboss/resteasy/test/client/proxy/ResponseObjectTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/client/proxy/ProxyWithGenericReturnTypeTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/client/proxy/ProxyNullInputStreamTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/client/proxy/UnauthorizedHttpCodeTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/client/proxy/ProxyJaxbResourcePostTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/client/proxy/ProxyClassloaderTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/client/proxy/WhitespaceTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/client/proxy/ClientSmokeTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/client/proxy/ContextTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/client/proxy/SubResourceLocatorProxyTest.java</exclude>
+            <!-- fails todo  --><exclude>org/jboss/resteasy/test/client/proxy/EncodedPathProxyTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/client/proxy/NullEntityProxyTest.java</exclude>
+
+            <exclude>org/jboss/resteasy/test/client/proxy/ProxyCastingSimpleTest.java</exclude>
+
+            <exclude>org/jboss/resteasy/test/client/exception/UnauthorizedExceptionTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/client/exception/ClientExceptionsTest.java</exclude>
+            <!-- fails todo --> <exclude>org/jboss/resteasy/test/client/exception/ClientErrorTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/client/exception/ClientErrorBadMediaTypeTest.java</exclude>
+            <!-- fails todo
+                java.util.ServiceConfigurationError:
+                    org.apache.logging.log4j.spi.Provider:
+                    org.apache.logging.log4j.core.impl.Log4jProvider
+                  not a subtype
+           --><exclude>org/jboss/resteasy/test/client/exception/ExceptionBufferingTest.java</exclude>
+
+            <!-- fails todo
+                java.util.ServiceConfigurationError:
+                    org.apache.logging.log4j.spi.Provider:
+                    org.apache.logging.log4j.core.impl.Log4jProvider
+                  not a subtype
+           --><exclude>org/jboss/resteasy/test/client/other/ApacheHttpClient43Test.java</exclude>
+            <exclude>org/jboss/resteasy/test/client/other/CustomHttpClientEngineTest.java</exclude>
+
+      <!--
+            <exclude>org/jboss/resteasy/test/client/**</exclude>
+            <exclude>org/jboss/resteasy/test/client/**</exclude>
+            <exclude>org/jboss/resteasy/test/client/**</exclude>
+            <exclude>org/jboss/resteasy/test/client/**</exclude>
+            <exclude>org/jboss/resteasy/test/client/**</exclude>
+            <exclude>org/jboss/resteasy/test/client/**</exclude>
+            <exclude>org/jboss/resteasy/test/client/**</exclude>
+      -->
 
           </excludes>
         </configuration>
