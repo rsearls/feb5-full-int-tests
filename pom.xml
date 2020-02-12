@@ -39,6 +39,12 @@
     <version.jboss.dmr>1.5.0.Final</version.jboss.dmr>
     <version.wildfly.controller.client>7.0.0.Final</version.wildfly.controller.client>
     <version.jboss.threads>2.3.2.Final</version.jboss.threads>
+    <version.wildfly.arquillian.common>2.2.0.Final</version.wildfly.arquillian.common>
+    <version.jboss.ejb.spec>2.0.0.Final</version.jboss.ejb.spec>
+    <version.org.eclipse.aether>1.1.0</version.org.eclipse.aether>
+    <version.org.jboss.spec.javax.el.jboss-el-api_3.0_spec>2.0.0.Final</version.org.jboss.spec.javax.el.jboss-el-api_3.0_spec>
+    <version.jakarta.validation-api>2.0.2</version.jakarta.validation-api>
+    <version.org.glassfish.jakarta.el>3.0.2</version.org.glassfish.jakarta.el>
   </properties>
 
   <dependencyManagement>
@@ -63,6 +69,103 @@
   </dependencyManagement>
 
   <dependencies>
+
+    <!-- todo 12 -->
+    <dependency>
+      <groupId>org.wildfly.arquillian</groupId>
+      <artifactId>wildfly-arquillian-common</artifactId>
+      <version>${version.wildfly.arquillian.common}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.jboss.resteasy</groupId>
+      <artifactId>resteasy-multipart-provider</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.jboss.resteasy</groupId>
+      <artifactId>resteasy-atom-provider</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.jboss.resteasy</groupId>
+      <artifactId>resteasy-jackson2-provider</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.jboss.resteasy</groupId>
+      <artifactId>resteasy-html</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.jboss.resteasy</groupId>
+      <artifactId>resteasy-crypto</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.jboss.spec.javax.ejb</groupId>
+      <artifactId>jboss-ejb-api_3.2_spec</artifactId>
+      <version>${version.jboss.ejb.spec}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.jboss.resteasy</groupId>
+      <artifactId>resteasy-stats</artifactId>
+      <version>${resteasy-version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.jboss.resteasy</groupId>
+      <artifactId>resteasy-validator-provider</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-core</artifactId>
+      <version>1.9.5</version>
+      <exclusions>
+        <exclusion>
+          <groupId>org.hamcrest</groupId>
+          <artifactId>hamcrest-core</artifactId>
+        </exclusion>
+      </exclusions>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.aether</groupId>
+      <artifactId>aether-transport-file</artifactId>
+      <version>${version.org.eclipse.aether}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.aether</groupId>
+      <artifactId>aether-transport-http</artifactId>
+      <version>${version.org.eclipse.aether}</version>
+    </dependency>
+    <!-- Does NOT work
+    <dependency>
+      <groupId>org.eclipse.aether</groupId>
+      <artifactId>aether-api</artifactId>
+      <version>${version.org.eclipse.aether}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.maven.resolver</groupId>
+      <artifactId>maven-resolver-api</artifactId>
+      <version>1.1.1</version>
+    </dependency>
+       -->
+    <dependency>
+      <groupId>org.jboss.resteasy</groupId>
+      <artifactId>resteasy-core-spi</artifactId>
+    </dependency>
+    <!--
+    <dependency>
+      <groupId>org.jboss.spec.javax.el</groupId>
+      <artifactId>jboss-el-api_3.0_spec</artifactId>
+      <version>${version.org.jboss.spec.javax.el.jboss-el-api_3.0_spec}</version>
+    </dependency>
+    <dependency>
+      <groupId>jakarta.validation</groupId>
+      <artifactId>jakarta.validation-api</artifactId>
+      <version>${version.jakarta.validation-api}</version>
+    </dependency>
+    -->
+    <dependency>
+      <groupId>org.glassfish</groupId>
+      <artifactId>jakarta.el</artifactId>
+      <version>${version.org.glassfish.jakarta.el}</version>
+    </dependency>
 
     <!-- todo 11 -->
     <dependency>
@@ -718,14 +821,264 @@
            --><exclude>org/jboss/resteasy/test/client/other/ApacheHttpClient43Test.java</exclude>
             <exclude>org/jboss/resteasy/test/client/other/CustomHttpClientEngineTest.java</exclude>
 
-      <!--
-            <exclude>org/jboss/resteasy/test/client/**</exclude>
-            <exclude>org/jboss/resteasy/test/client/**</exclude>
-            <exclude>org/jboss/resteasy/test/client/**</exclude>
-            <exclude>org/jboss/resteasy/test/client/**</exclude>
-            <exclude>org/jboss/resteasy/test/client/**</exclude>
-            <exclude>org/jboss/resteasy/test/client/**</exclude>
-            <exclude>org/jboss/resteasy/test/client/**</exclude>
+
+
+            <!-- ############## crypto, providers, validation  ####################
+                dir: org/jboss/resteasy/test/crypto
+                     org/jboss/resteasy/test/providers
+                     org/jboss/resteasy/test/validation
+                       total test
+                       tests ran successfully
+                       tests failed
+              ################################################## -->
+            <!-- fails todo
+                  java.util.ServiceConfigurationError:
+                    org.apache.logging.log4j.spi.Provider:
+                    org.apache.logging.log4j.core.impl.Log4jProvider
+                  not a subtype
+             --><exclude>org/jboss/resteasy/test/crypto/SigningTest.java</exclude>
+
+            <!-- fails todo
+                  java.util.ServiceConfigurationError:
+                    org.apache.logging.log4j.spi.Provider:
+                    org.apache.logging.log4j.core.impl.Log4jProvider
+                  not a subtype
+            --><exclude>org/jboss/resteasy/test/crypto/VerifyDecryptTest.java</exclude>
+
+            <!-- fails todo
+                javax.validation.ValidationException: RESTEASY008520: Unable to load Validation support
+                javax.validation.ValidationException: HV000183: Unable to initialize 'javax.el.ExpressionFactory'. Check that you have the EL dependencies on the classpath, or use ParameterMessageInterpolator instead
+                HV000183: Unable to initialize 'javax.el.ExpressionFactory'. Check that you have the EL dependencies on the classpath, or use ParameterMessageInterpolator instead
+                org.hibernate.validator.messageinterpolation.ResourceBundleMessageInterpolator.buildExpressionFactory(ResourceBundleMessageInterpolator.java:206)
+             --><exclude>org/jboss/resteasy/test/crypto/CryptoTest.java</exclude>
+
+            <!-- fails todo
+                java.util.ServiceConfigurationError:
+                  org.apache.logging.log4j.spi.Provider:
+                  org.apache.logging.log4j.core.impl.Log4jProvider
+                not a subtype
+             --><exclude>org/jboss/resteasy/test/crypto/PKCS7SignatureSmokeTest.java</exclude>
+
+            <!-- fails todo
+              javax.validation.ValidationException: RESTEASY008520: Unable to load Validation support
+              javax.validation.ValidationException: HV000183: Unable to initialize 'javax.el.ExpressionFactory'. Check that you have the EL dependencies on the classpath, or use ParameterMessageInterpolator instead
+              HV000183: Unable to initialize 'javax.el.ExpressionFactory'. Check that you have the EL dependencies on the classpath, or use ParameterMessageInterpolator instead
+              org.hibernate.validator.messageinterpolation.ResourceBundleMessageInterpolator.buildExpressionFactory(ResourceBundleMessageInterpolator.java:206)
+            --><exclude>org/jboss/resteasy/test/providers/html/HtmlSanitizerOptionalTest.java</exclude>
+
+            <!-- fail todo
+                known issue: https://github.com/quarkusio/quarkus-images/issues/13
+                java.lang.NoSuchMethodError: org.eclipse.aether.transfer.TransferResource.
+                <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/io/File;
+                Lorg/eclipse/aether/RequestTrace;)V
+            --><exclude>org/jboss/resteasy/test/providers/html/HeadersInViewResponseTest.java</exclude>
+
+            <!-- fail todo
+                known issue: https://github.com/quarkusio/quarkus-images/issues/13
+                java.lang.NoSuchMethodError: org.eclipse.aether.transfer.TransferResource.
+                <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/io/File;
+                Lorg/eclipse/aether/RequestTrace;)V
+            --><exclude>org/jboss/resteasy/test/providers/plain/CharsetTest.java</exclude>
+
+            <!-- fails todo
+              javax.validation.ValidationException: RESTEASY008520: Unable to load Validation support
+              javax.validation.ValidationException: HV000183: Unable to initialize 'javax.el.ExpressionFactory'. Check that you have the EL dependencies on the classpath, or use ParameterMessageInterpolator instead
+              HV000183: Unable to initialize 'javax.el.ExpressionFactory'. Check that you have the EL dependencies on the classpath, or use ParameterMessageInterpolator instead
+              org.hibernate.validator.messageinterpolation.ResourceBundleMessageInterpolator.buildExpressionFactory(ResourceBundleMessageInterpolator.java:206)
+            --><exclude>org/jboss/resteasy/test/providers/plain/DefaultNumberWriterTest.java</exclude>
+
+             <!-- fails todo
+                 javax.validation.ValidationException: RESTEASY008520: Unable to load Validation support
+                 javax.validation.ValidationException: HV000183: Unable to initialize 'javax.el.ExpressionFactory'. Check that you have the EL dependencies on the classpath, or use ParameterMessageInterpolator instead
+                 HV000183: Unable to initialize 'javax.el.ExpressionFactory'. Check that you have the EL dependencies on the classpath, or use ParameterMessageInterpolator instead
+                 org.hibernate.validator.messageinterpolation.ResourceBundleMessageInterpolator.buildExpressionFactory(ResourceBundleMessageInterpolator.java:206)
+             --><exclude>org/jboss/resteasy/test/providers/mediatype/BlacklistedMediaTypeTest.java</exclude>
+
+            <!-- fails todo
+              javax.validation.ValidationException: RESTEASY008520: Unable to load Validation support
+              javax.validation.ValidationException: HV000183: Unable to initialize 'javax.el.ExpressionFactory'. Check that you have the EL dependencies on the classpath, or use ParameterMessageInterpolator instead
+              HV000183: Unable to initialize 'javax.el.ExpressionFactory'. Check that you have the EL dependencies on the classpath, or use ParameterMessageInterpolator instead
+              org.hibernate.validator.messageinterpolation.ResourceBundleMessageInterpolator.buildExpressionFactory(ResourceBundleMessageInterpolator.java:206)
+            --><exclude>org/jboss/resteasy/test/providers/atom/AtomProviderTest.java</exclude>
+
+            <!-- fails todo
+              javax.validation.ValidationException: RESTEASY008520: Unable to load Validation support
+              javax.validation.ValidationException: HV000183: Unable to initialize 'javax.el.ExpressionFactory'. Check that you have the EL dependencies on the classpath, or use ParameterMessageInterpolator instead
+              HV000183: Unable to initialize 'javax.el.ExpressionFactory'. Check that you have the EL dependencies on the classpath, or use ParameterMessageInterpolator instead
+              org.hibernate.validator.messageinterpolation.ResourceBundleMessageInterpolator.buildExpressionFactory(ResourceBundleMessageInterpolator.java:206)
+            --><exclude>org/jboss/resteasy/test/providers/atom/JAXBContextFinderTest.java</exclude>
+
+            <!-- fails todo
+              javax.validation.ValidationException: RESTEASY008520: Unable to load Validation support
+              javax.validation.ValidationException: HV000183: Unable to initialize 'javax.el.ExpressionFactory'. Check that you have the EL dependencies on the classpath, or use ParameterMessageInterpolator instead
+              HV000183: Unable to initialize 'javax.el.ExpressionFactory'. Check that you have the EL dependencies on the classpath, or use ParameterMessageInterpolator instead
+              org.hibernate.validator.messageinterpolation.ResourceBundleMessageInterpolator.buildExpressionFactory(ResourceBundleMessageInterpolator.java:206)
+            --><exclude>org/jboss/resteasy/test/providers/atom/AtomComplexModelTest.java</exclude>
+
+            <!-- fails todo
+              javax.validation.ValidationException: RESTEASY008520: Unable to load Validation support
+              --><exclude>org/jboss/resteasy/test/providers/atom/LinkTest.java</exclude>
+
+            <!-- fails todo
+              java.lang.NoSuchMethodError: org.eclipse.aether.transfer.TransferResource.<init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/io/File;Lorg/eclipse/aether/RequestTrace;)V
+            --><exclude>org/jboss/resteasy/test/providers/jsonp/JsonpTest.java</exclude>
+
+            <!-- fails todo
+                javax.enterprise.inject.spi.DeploymentException: Found 2 deployment problems:
+                [1] Unsatisfied dependency for type
+                    org.jboss.resteasy.test.providers.priority.resource.ProviderPriorityExceptionMapperCCC and qualifiers [@Default]
+                   - java member: org.jboss.resteasy.test.providers.priority.resource.ProviderPriorityResource#exceptionMapper
+                   - declared on CLASS bean [types=[org.jboss.resteasy.test.providers.priority.resource.ProviderPriorityResource, java.lang.Object],
+                  qualifiers=[@Default, @Any], target=org.jboss.resteasy.test.providers.priority.resource.ProviderPriorityResource]
+                [2] Unsatisfied dependency for type org.jboss.resteasy.test.providers.priority.resource.ProviderPriorityFooParamConverterProviderCCC
+                    and qualifiers [@Default]
+                   - java member: org.jboss.resteasy.test.providers.priority.resource.ProviderPriorityResource#paramConvertrProvider
+                   - declared on CLASS bean [types=[org.jboss.resteasy.test.providers.priority.resource.ProviderPriorityResource, java.lang.Object],
+                    qualifiers=[@Default, @Any], target=org.jboss.resteasy.test.providers.priority.resource.ProviderPriorityResource]
+            --><exclude>org/jboss/resteasy/test/providers/priority/ProviderPriorityProvidersRegisteredProgramaticallyTest.java</exclude>
+            <!-- fails todo
+              java.lang.NoSuchMethodError: org.eclipse.aether.transfer.TransferResource.<init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/io/File;Lorg/eclipse/aether/RequestTrace;)V
+            --><exclude>org/jboss/resteasy/test/providers/priority/ProviderPriorityProvidersInApplicationTest.java</exclude>
+
+            <!-- fails todo ALL FOLLOWING TESTS FAIL IN THE SAME WAY
+              java.lang.NoSuchMethodError: org.eclipse.aether.transfer.TransferResource.<init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/io/File;Lorg/eclipse/aether/RequestTrace;)V
+            -->
+            <exclude>org/jboss/resteasy/test/providers/jsonb/basic/JsonBindingAnnotationsJacksonTest.java</exclude>
+
+            <exclude>org/jboss/resteasy/test/providers/jsonb/basic/JsonBindingTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/providers/jsonb/basic/SetMethodWithMoreArgumentsTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/providers/jsonb/basic/JsonBindingDebugLoggingTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/providers/iioimage/IIOImageProviderTest.java</exclude>
+
+            <exclude>org/jboss/resteasy/test/providers/inputstream/InputStreamCloseTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/providers/file/TempFileDeletionTest.java</exclude>
+
+            <exclude>org/jboss/resteasy/test/providers/multipart/NullPartTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/providers/multipart/MimeMultipartProviderTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/providers/multipart/XOPMultipartProxyTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/providers/multipart/EmptyInputStreamMultipartProviderTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/providers/multipart/EmbeddedMultipartTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/providers/multipart/InputPartDefaultContentTypeEncodingOverwriteTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/providers/multipart/EncodingMimeMultipartFormProviderTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/providers/multipart/HeaderFlushedOutputStreamTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/providers/multipart/InputPartDefaultContentTypeWildcardOverwriteNewInterceptorTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/providers/multipart/InputPartDefaultCharsetOverwriteTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/providers/multipart/ContextProvidersTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/providers/multipart/GenericTypeMultipartTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/providers/multipart/ProxyTest.java</exclude>
+
+            <exclude>org/jboss/resteasy/test/providers/sse/SseSmokeTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/providers/sse/SseCORSFilterTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/providers/sse/SseEventSinkClosingTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/providers/sse/SsePostResourceMethodInvokerTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/providers/sse/SseEventSinkTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/providers/sse/SseBroadcasterTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/providers/sse/SseReconnectTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/providers/sse/SseJsonEventTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/providers/sse/SseEnablingTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/providers/sse/SseEventSourceTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/providers/sse/SseTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/providers/sse/SseBroadcastTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/providers/mbw/MessageBodyWriterObjectDefaultTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/providers/datasource/CleanFilesDataSourceProviderTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/providers/datasource/ReadDataSourceTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/providers/datasource/DataSourceProviderInputStreamTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/providers/datasource/ReadDataSourceTwiceCountTempFileTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/providers/datasource/ReadFromSocketDataSourceProviderTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/providers/datasource/BigSmallDataSourceTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/providers/map/MapProviderBuiltInTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/providers/map/MapProviderTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/providers/jaxb/KeepCharsetTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/providers/jaxb/XmlHeaderTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/providers/jaxb/CollectionCoreTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/providers/jaxb/AbstractJaxbClassTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/providers/jaxb/EmptyContentTypeTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/providers/jaxb/SeeAlsoAnnotationTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/providers/jaxb/JaxbCollectionTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/providers/jaxb/JaxbElementTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/providers/jaxb/ParsingTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/providers/jaxb/BadContentTypeTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/providers/jaxb/XmlJavaTypeAdapterTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/providers/jaxb/CharSetRE1066Test.java</exclude>
+            <exclude>org/jboss/resteasy/test/providers/jaxb/CustomOverrideTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/providers/jaxb/XmlEnumParamTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/providers/jaxb/XmlJAXBContextFinderTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/providers/jaxb/XmlJaxbProvidersTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/providers/jaxb/JaxbMarshallingSoakTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/providers/jaxb/JaxbXmlRootElementProviderTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/providers/jaxb/MapTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/providers/jaxb/StatsTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/providers/jaxb/GenericSuperInterfaceTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/providers/jaxb/CharacterSetTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/providers/jaxb/ExceptionMapperJaxbTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/providers/jaxb/GenericResourceTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/providers/jaxb/JaxbCacheTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/providers/jaxb/StreamResetTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/providers/jaxb/LinkJaxbTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/providers/jaxb/QualityFactorTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/providers/jaxb/StringCharsetTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/providers/jaxb/CharSetTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/providers/jaxb/HomecontrolCustomJAXBContextTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/providers/jaxb/InheritanceTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/providers/noproduces/ProviderWithNoProducesTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/providers/custom/CollectionProviderTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/providers/custom/ReaderWriterTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/providers/custom/RetrieveRegisteredClassesTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/providers/custom/ResponseFilterChangeStatusTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/providers/custom/ProviderContextInjectionTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/providers/custom/DuplicateProviderRegistrationTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/providers/custom/ResponseFilterTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/providers/custom/SingletonCustomProviderTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/providers/custom/CustomConstrainedFeatureTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/providers/custom/ResponseGetAnnotationsTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/providers/custom/CustomProviderPreferenceTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/providers/custom/SetRequestUriTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/providers/custom/WriterNotBuiltinTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/providers/custom/CustomValueInjectorTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/providers/custom/MissingProducerTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/providers/custom/FilterDispatcherUndertowTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/providers/custom/CustomContextProviderPreferenceTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/providers/custom/ResponseContainerFilterTest.java</exclude>
+
+            <!-- fails todo TESTS CONTINUE TO FAIL -->
+            <exclude>org/jboss/resteasy/test/validation/ValidateOnExecutionTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/validation/ValidationComplexTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/validation/ValidationExceptionsTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/validation/ValidationCoreTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/validation/ValidationXMLTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/validation/PathSuppressionTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/validation/ContextProvidersNewClientTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/validation/ValidationJaxbTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/validation/ResteasyViolationExceptionRepresentationTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/validation/ValidationNullErrorValueTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/validation/GetterReturnValueNotValidatedTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/validation/ValidationSurpressPathDefaultTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/validation/ValidationOnGetterTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/validation/ValidationHibernateI18NTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/validation/ValidationTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/validation/ExecutableValidationDisabledTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/validation/ValidationSurpressPathTrueTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/validation/ValidationThroughRestTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/validation/ValidationSurpressPathFalseTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/validation/GetterReturnValueValidatedTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/validation/cdi/SubresourceValidationTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/validation/cdi/ValidationSessionBeanTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/validation/cdi/CDIValidationSessionBeanTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/validation/cdi/CDIValidationCoreTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/validation/cdi/MultipleWarTest.java</exclude>
+            <exclude>org/jboss/resteasy/test/validation/cdi/ApplicationScopeValidationTest.java</exclude>
+
+        <!--
+            <exclude>org/jboss/resteasy/test/validation/**</exclude>
+            <exclude>org/jboss/resteasy/test/validation/**</exclude>
+            <exclude>org/jboss/resteasy/test/validation/**</exclude>
+            <exclude>org/jboss/resteasy/test/validation/**</exclude>
+            <exclude>org/jboss/resteasy/test/validation/**</exclude>
+            <exclude>org/jboss/resteasy/test/validation/**</exclude>
+            <exclude>org/jboss/resteasy/test/validation/**</exclude>
+            <exclude>org/jboss/resteasy/test/validation/**</exclude>
+            <exclude>org/jboss/resteasy/test/validation/**</exclude>
+            <exclude>org/jboss/resteasy/test/validation/**</exclude>
       -->
 
           </excludes>
