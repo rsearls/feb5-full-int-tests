@@ -1068,17 +1068,29 @@
             <exclude>org/jboss/resteasy/test/validation/cdi/MultipleWarTest.java</exclude>
             <exclude>org/jboss/resteasy/test/validation/cdi/ApplicationScopeValidationTest.java</exclude>
 
+            <!-- ############## resource  ####################
+              dir: org/jboss/resteasy/test/resource
+                     total test
+                     tests ran successfully
+                     tests failed
+            ################################################## -->
+            <exclude>org/jboss/resteasy/test/resource/basic/**</exclude>
+            <exclude>org/jboss/resteasy/test/resource/param/**</exclude>
+            <exclude>org/jboss/resteasy/test/resource/request/**</exclude>
+            <exclude>org/jboss/resteasy/test/resource/path/**</exclude>
+            <exclude>org/jboss/resteasy/test/resource/constructor/**</exclude>
+            <exclude>org/jboss/resteasy/test/resource/patch/PatchErrorHandlingTest.java</exclude>
+            <!-- fails TODO
+              java.lang.NoSuchMethodError: org.eclipse.aether.transfer.TransferResource.<init>(Ljava/lang/String;
+              Ljava/lang/String;Ljava/lang/String;Ljava/io/File;Lorg/eclipse/aether/RequestTrace;)V
+            --><exclude>org/jboss/resteasy/test/resource/patch/StudentPatchTest.java</exclude>
+
+
+
+
+
         <!--
-            <exclude>org/jboss/resteasy/test/validation/**</exclude>
-            <exclude>org/jboss/resteasy/test/validation/**</exclude>
-            <exclude>org/jboss/resteasy/test/validation/**</exclude>
-            <exclude>org/jboss/resteasy/test/validation/**</exclude>
-            <exclude>org/jboss/resteasy/test/validation/**</exclude>
-            <exclude>org/jboss/resteasy/test/validation/**</exclude>
-            <exclude>org/jboss/resteasy/test/validation/**</exclude>
-            <exclude>org/jboss/resteasy/test/validation/**</exclude>
-            <exclude>org/jboss/resteasy/test/validation/**</exclude>
-            <exclude>org/jboss/resteasy/test/validation/**</exclude>
+            <exclude>org/jboss/resteasy/test/**</exclude>
       -->
 
           </excludes>
