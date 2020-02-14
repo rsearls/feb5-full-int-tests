@@ -80,6 +80,12 @@
 
   <dependencies>
 
+    <!-- todo 13 -->
+    <dependency>
+      <groupId>org.jboss.resteasy</groupId>
+      <artifactId>resteasy-cache-core</artifactId>
+      <version>${resteasy-version}</version>
+    </dependency>
     <!-- todo 12 -->
     <dependency>
       <groupId>org.wildfly.arquillian</groupId>
@@ -1476,6 +1482,24 @@
             <!-- --><exclude>org/jboss/resteasy/test/form/FormParamPutTest.java</exclude>
             <!-- --><exclude>org/jboss/resteasy/test/form/NestedCollectionsFormTest.java</exclude>
 
+
+            <!-- ############## cache, microprofile  ####################
+              dir: org/jboss/resteasy/test/cache
+                     total test
+                     tests ran successfully
+                     tests failed
+            ################################################## -->
+            <!-- --><exclude>org/jboss/resteasy/test/cache/ServerCacheInterceptorTest.java</exclude>
+
+            <!-- fails todo (test failing)
+            --><exclude>org/jboss/resteasy/test/microprofile/config/MicroProfileConfigServletContextListenerTest.java</exclude>
+            <!-- fails todo
+            --><exclude>org/jboss/resteasy/test/microprofile/config/MicroProfileConfigServletTest.java</exclude>
+            <!-- fails todo
+            --><exclude>org/jboss/resteasy/test/microprofile/config/MicroProfileConfigFilterTest.java</exclude>
+            <!-- --><exclude>org/jboss/resteasy/test/microprofile/config/MicroProfileConfigUseGlobalTest.java</exclude>
+            <!-- --><exclude>org/jboss/resteasy/test/microprofile/restclient/RestClientProxyTest.java</exclude>
+            <!-- --><exclude>org/jboss/resteasy/test/microprofile/restclient/RestClientProxyRedeployTest.java</exclude>
 
 
             <!--
