@@ -1025,42 +1025,25 @@
             <!-- --><exclude>org/jboss/resteasy/test/providers/mbw/MessageBodyWriterObjectDefaultTest.java</exclude>
             <!-- --><exclude>org/jboss/resteasy/test/providers/datasource/CleanFilesDataSourceProviderTest.java</exclude>
             <!-- --><exclude>org/jboss/resteasy/test/providers/datasource/ReadDataSourceTest.java</exclude>
-
             <!-- fails todo (Wrong length of response expected:<5120> but was:<3994>)
             --><exclude>org/jboss/resteasy/test/providers/datasource/DataSourceProviderInputStreamTest.java</exclude>
-
             <!-- --><exclude>org/jboss/resteasy/test/providers/datasource/ReadDataSourceTwiceCountTempFileTest.java</exclude>
-
             <!-- --><exclude>org/jboss/resteasy/test/providers/datasource/ReadFromSocketDataSourceProviderTest.java</exclude>
-
             <!-- --><exclude>org/jboss/resteasy/test/providers/datasource/BigSmallDataSourceTest.java</exclude>
-
             <!-- --><exclude>org/jboss/resteasy/test/providers/map/MapProviderBuiltInTest.java</exclude>
-
             <!-- --><exclude>org/jboss/resteasy/test/providers/map/MapProviderTest.java</exclude>
-
             <!-- fails todo (java.util.concurrent.ExecutionException: java.net.BindException: Address already in use)
             --><exclude>org/jboss/resteasy/test/providers/jaxb/KeepCharsetTest.java</exclude>
-
             <!-- fails todo (deployment error)
             --><exclude>org/jboss/resteasy/test/providers/jaxb/XmlHeaderTest.java</exclude>
-
             <!-- --><exclude>org/jboss/resteasy/test/providers/jaxb/CollectionCoreTest.java</exclude>
-
             <!-- --><exclude>org/jboss/resteasy/test/providers/jaxb/AbstractJaxbClassTest.java</exclude>
-
             <!-- --><exclude>org/jboss/resteasy/test/providers/jaxb/EmptyContentTypeTest.java</exclude>
-
             <!-- --><exclude>org/jboss/resteasy/test/providers/jaxb/SeeAlsoAnnotationTest.java</exclude>
-
             <!-- --><exclude>org/jboss/resteasy/test/providers/jaxb/JaxbCollectionTest.java</exclude>
-
             <!-- --><exclude>org/jboss/resteasy/test/providers/jaxb/JaxbElementTest.java</exclude>
-
             <!-- --><exclude>org/jboss/resteasy/test/providers/jaxb/ParsingTest.java</exclude>
-
             <!-- --><exclude>org/jboss/resteasy/test/providers/jaxb/BadContentTypeTest.java</exclude>
-
             <!-- fails todo (does not use @RunAsClient)
             --><exclude>org/jboss/resteasy/test/providers/jaxb/XmlJavaTypeAdapterTest.java</exclude>
             <!-- --><exclude>org/jboss/resteasy/test/providers/jaxb/CharSetRE1066Test.java</exclude>
@@ -1340,6 +1323,57 @@
             <!-- --><exclude>org/jboss/resteasy/test/resource/constructor/ResourceConstructorParamsTest.java</exclude>
             <!-- --><exclude>org/jboss/resteasy/test/resource/patch/PatchErrorHandlingTest.java</exclude>
             <!-- --><exclude>org/jboss/resteasy/test/resource/patch/StudentPatchTest.java</exclude>
+
+
+
+            <!-- ############## warning, core/logging, core/spi, core/servlet, core/encoding, core/interceptors  ####################
+              dir: org/jboss/resteasy/test/warning
+                    org/jboss/resteasy/core/logging
+                    org/jboss/resteasy/core/spi
+                    org/jboss/resteasy/core/servlet
+                    org/jboss/resteasy/core/encoding
+                    org/jboss/resteasy/core/interceptors
+                     total test
+                     tests ran successfully
+                     tests failed
+            ################################################## -->
+            <!-- fails todo (<0> was less than <1>)
+            --><exclude>org/jboss/resteasy/test/warning/SubResourceWarningTest.java</exclude>
+            <!-- fails todo (java.util.concurrent.ExecutionException: java.net.BindException: Address already in use)
+            --><exclude>org/jboss/resteasy/test/core/logging/DebugLoggingTest.java</exclude>
+            <!-- --><exclude>org/jboss/resteasy/test/core/ResteasyJAXRSImplTest.java</exclude>
+            <!-- --><exclude>org/jboss/resteasy/test/core/spi/ResourceClassProcessorNotAppliedTest.java</exclude>
+            <!-- --><exclude>org/jboss/resteasy/test/core/spi/ResourceClassProcessorPriorityTest.java</exclude>
+            <!-- fails todo (<0> was less than <1>)
+            --><exclude>org/jboss/resteasy/test/core/spi/ResourceClassProcessorErrorTest.java</exclude>
+            <!-- fails todo (java.util.concurrent.ExecutionException: java.net.BindException: Address already in use)
+            --><exclude>org/jboss/resteasy/test/core/spi/ResourceClassProcessorBasicTest.java</exclude>
+            <!-- fails todo (address issue   java.io.FileNotFoundException: http://localhost:8081//test)
+            --><exclude>org/jboss/resteasy/test/core/servlet/UndertowTest.java</exclude>
+            <!-- fails todo (java.lang.RuntimeException: java.lang.RuntimeException: RESTEASY003190:
+              Could not find constructor for class:
+              org.jboss.resteasy.test.core.servlet.resource.ServletMappingProxy)
+            --><exclude>org/jboss/resteasy/test/core/servlet/ServletMappingTest.java</exclude>
+            <!-- fails todo (expected:<200> but was:<500>)
+            --><exclude>org/jboss/resteasy/test/core/servlet/FilterTest.java</exclude>
+            <!-- fails todo (java.lang.RuntimeException: java.lang.RuntimeException: RESTEASY003925:
+                  Unable to instantiate ExceptionMapper)
+            --><exclude>org/jboss/resteasy/test/core/servlet/ServletConfigTest.java</exclude>
+            <!-- --><exclude>org/jboss/resteasy/test/core/encoding/SpecialCharactersTest.java</exclude>
+            <!-- --><exclude>org/jboss/resteasy/test/core/encoding/EncodedParamsTest.java</exclude>
+            <!-- fails todo (path issue  http://localhost:8081//test/path-param/start%3Fend)
+            --><exclude>org/jboss/resteasy/test/core/encoding/EncodingTest.java</exclude>
+            <!-- --><exclude>org/jboss/resteasy/test/core/encoding/MatrixParamEncodingTest.java</exclude>
+            <!-- --><exclude>org/jboss/resteasy/test/core/encoding/ParameterEncodingTest.java</exclude>
+            <!-- --><exclude>org/jboss/resteasy/test/core/interceptors/FilteredCookieTest.java</exclude>
+            <!-- --><exclude>org/jboss/resteasy/test/core/interceptors/ReaderContextTest.java</exclude>
+            <!-- --><exclude>org/jboss/resteasy/test/core/interceptors/PreProcessorExceptionMapperTest.java</exclude>
+            <!-- fails todo (expected:<413> but was:<200>)
+            --><exclude>org/jboss/resteasy/test/core/interceptors/GzipSizeTest.java</exclude>
+            <!-- --><exclude>org/jboss/resteasy/test/core/interceptors/ClientResponseFilterExceptionTest.java</exclude>
+            <!-- --><exclude>org/jboss/resteasy/test/core/interceptors/GzipTest.java</exclude>
+            <!-- --><exclude>org/jboss/resteasy/test/core/interceptors/CorsFiltersTest.java</exclude>
+
 
             <!--
                 <exclude>org/jboss/resteasy/test/validation/**</exclude>
