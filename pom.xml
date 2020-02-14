@@ -1453,12 +1453,32 @@
             <!-- --><exclude>org/jboss/resteasy/test/rx/rxjava2/Rx2SingleServerAsyncTest.java</exclude>
             <!-- --><exclude>org/jboss/resteasy/test/rx/rxjava2/Rx2FlowableSSECompatibilityTest.java</exclude>
             <!-- --><exclude>org/jboss/resteasy/test/rx/rxjava2/Rx2ObservableTest.java</exclude>
-
             <!-- --><exclude>org/jboss/resteasy/test/rx/rxjava2/NoStreamRx2Test.java</exclude>
 
 
+            <!-- ############## injection, form  ####################
+              dir: org/jboss/resteasy/test/injection
+                   org/jboss/resteasy/test/form
+                     total test
+                     tests ran successfully
+                     tests failed
+            ################################################## -->
+            <!-- --><exclude>org/jboss/resteasy/test/injection/PostConstructInjectionTest.java</exclude>
+            <!-- --><exclude>org/jboss/resteasy/test/form/FormEntityTest.java</exclude>
+            <!-- --><exclude>org/jboss/resteasy/test/form/CollectionsFormTest.java</exclude>
+            <!-- --><exclude>org/jboss/resteasy/test/form/FormParameterTest.java</exclude>
+            <!-- --><exclude>org/jboss/resteasy/test/form/FormResourceTest.java</exclude>
+            <!-- --><exclude>org/jboss/resteasy/test/form/FormUrlEncodedTest.java</exclude>
+            <!-- --><exclude>org/jboss/resteasy/test/form/Resteasy1405Test.java</exclude>
+            <!-- --><exclude>org/jboss/resteasy/test/form/FormUrlEncodedCharsetTest.java</exclude>
+            <!-- --><exclude>org/jboss/resteasy/test/form/ComplexFormTest.java</exclude>
+            <!-- --><exclude>org/jboss/resteasy/test/form/FormBodyResourceTest.java</exclude>
+            <!-- --><exclude>org/jboss/resteasy/test/form/FormParamPutTest.java</exclude>
+            <!-- --><exclude>org/jboss/resteasy/test/form/NestedCollectionsFormTest.java</exclude>
+
+
+
             <!--
-                <exclude>org/jboss/resteasy/test/providers/jackson2</exclude>
                 <exclude>org/jboss/resteasy/test/validation/**</exclude>
                 <exclude>org/jboss/resteasy/test/validation/**</exclude>
                 <exclude>org/jboss/resteasy/test/validation/**</exclude>
