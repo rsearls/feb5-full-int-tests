@@ -55,6 +55,8 @@
     <version.org.jboss.spec.javax.el.jboss-el-api_3.0_spec>2.0.0.Final</version.org.jboss.spec.javax.el.jboss-el-api_3.0_spec>
     <version.jakarta.validation-api>2.0.2</version.jakarta.validation-api>
     <version.org.glassfish.jakarta.el>3.0.2</version.org.glassfish.jakarta.el>
+    <version.org.hibernate.javax.persistence.hibernate-jpa-2.1-api>1.0.0.Final</version.org.hibernate.javax.persistence.hibernate-jpa-2.1-api>
+    <version.org.jboss.spec.javax.jms.jboss-jms-api_2.0_spec>2.0.0.Final</version.org.jboss.spec.javax.jms.jboss-jms-api_2.0_spec>
   </properties>
 
   <dependencyManagement>
@@ -79,6 +81,18 @@
   </dependencyManagement>
 
   <dependencies>
+
+    <!-- todo 14 -->
+    <dependency>
+      <groupId>org.hibernate.javax.persistence</groupId>
+      <artifactId>hibernate-jpa-2.1-api</artifactId>
+      <version>${version.org.hibernate.javax.persistence.hibernate-jpa-2.1-api}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.jboss.spec.javax.jms</groupId>
+      <artifactId>jboss-jms-api_2.0_spec</artifactId>
+      <version>${version.org.jboss.spec.javax.jms.jboss-jms-api_2.0_spec}</version>
+    </dependency>
 
     <!-- todo 13 -->
     <dependency>
@@ -1502,15 +1516,65 @@
             <!-- --><exclude>org/jboss/resteasy/test/microprofile/restclient/RestClientProxyRedeployTest.java</exclude>
 
 
+
+            <!-- ############## cdi  ####################
+              dir: org/jboss/resteasy/test/cdi
+                     total test
+                     tests ran successfully
+                     tests failed
+            ################################################## -->
+            <!-- --><exclude>org/jboss/resteasy/test/cdi/injection/InjectionTest.java</exclude>
+            <!-- --><exclude>org/jboss/resteasy/test/cdi/injection/InjectionJpaEnumTypeTest.java</exclude>
+            <!-- --><exclude>org/jboss/resteasy/test/cdi/injection/ReverseInjectionTest.java</exclude>
+            <!-- --><exclude>org/jboss/resteasy/test/cdi/injection/NonProxyableProviderTest.java</exclude>
+            <!-- --><exclude>org/jboss/resteasy/test/cdi/injection/MDBInjectionTest.java</exclude>
+            <!-- --><exclude>org/jboss/resteasy/test/cdi/injection/LazyInitUriInfoInjectionTest.java</exclude>
+            <!-- --><exclude>org/jboss/resteasy/test/cdi/injection/WeldSubdeploymentTest.java</exclude>
+            <!-- --><exclude>org/jboss/resteasy/test/cdi/modules/WarLibIntoWarClassesTest.java</exclude>
+            <!-- --><exclude>org/jboss/resteasy/test/cdi/modules/WarClassesIntoWarLibTest.java</exclude>
+            <!-- --><exclude>org/jboss/resteasy/test/cdi/modules/EjbjarLibIntoWarLibTest.java</exclude>
+            <!-- --><exclude>org/jboss/resteasy/test/cdi/modules/EarLibIntoEarLibTest.java</exclude>
+            <!-- --><exclude>org/jboss/resteasy/test/cdi/modules/EarLibIntoWarLibTest.java</exclude>
+            <!-- fails todo (NotFound HTTP 404 Not Found)
+            --><exclude>org/jboss/resteasy/test/cdi/basic/SingletonTest.java</exclude>
+            <!-- --><exclude>org/jboss/resteasy/test/cdi/basic/EventsTest.java</exclude>
+            <!-- --><exclude>org/jboss/resteasy/test/cdi/basic/EJBTest.java</exclude>
+            <!-- fails todo (expected:<200> but was:<404>)
+            --><exclude>org/jboss/resteasy/test/cdi/basic/EjbExceptionUnwrapTest.java</exclude>
+            <!-- fails todo (expected:<200> but was:<500>)
+            --><exclude>org/jboss/resteasy/test/cdi/basic/OutOfBandTest.java</exclude>
+            <!-- --><exclude>org/jboss/resteasy/test/cdi/basic/AsynchronousCdiTest.java</exclude>
+            <!-- fails todo (expected:<1> but was:<0>)
+            --><exclude>org/jboss/resteasy/test/cdi/basic/ApplicationInjectionTest.java</exclude>
+            <!-- --><exclude>org/jboss/resteasy/test/cdi/basic/DecoratorsTest.java</exclude>
+            <!-- --><exclude>org/jboss/resteasy/test/cdi/basic/BeanReaderWriterTest.java</exclude>
+            <!-- --><exclude>org/jboss/resteasy/test/cdi/basic/EJBEventsTest.java</exclude>
+            <!-- --><exclude>org/jboss/resteasy/test/cdi/basic/CDILocatorTest.java</exclude>
+            <!-- fails todo (java.nio.file.NoSuchFileException:
+                /home/rsearls/project/feb5-full-int-tests/target/jbossas-managed/
+                deployments/RESTEASY-1082.war)
+            --><exclude>org/jboss/resteasy/test/cdi/basic/CDIResourceTest.java</exclude>
+            <!-- --><exclude>org/jboss/resteasy/test/cdi/extensions/BeanExtensionTest.java</exclude>
+            <!-- --><exclude>org/jboss/resteasy/test/cdi/extensions/ScopeExtensionTest.java</exclude>
+            <!-- fails todo (expected:<200> but was:<500>)
+            --><exclude>org/jboss/resteasy/test/cdi/generic/ConcreteDecoratorTest.java</exclude>
+            <!-- --><exclude>org/jboss/resteasy/test/cdi/ejb/EJBCDIValidationEJBProxyTest.java</exclude>
+            <!-- --><exclude>org/jboss/resteasy/test/cdi/ejb/EJBCDIValidationTest.java</exclude>
+            <!-- --><exclude>org/jboss/resteasy/test/cdi/validation/ValidationWithCDITest.java</exclude>
+            <!-- --><exclude>org/jboss/resteasy/test/cdi/UtilitiesTest.java</exclude>
+            <!-- fails todo (expected:<200> but was:<500>)
+            --><exclude>org/jboss/resteasy/test/cdi/interceptors/InterceptorTest.java</exclude>
+            <!-- fails todo (expected:<200> but was:<500>)
+            --><exclude>org/jboss/resteasy/test/cdi/interceptors/TimerInterceptorTest.java</exclude>
+            <!-- fails todo (expected:<[in-test-ou]t> but was:<[tes]t>)
+            --><exclude>org/jboss/resteasy/test/cdi/interceptors/NameBoundCDIProxiesTest.java</exclude>
+            <!-- --><exclude>org/jboss/resteasy/test/cdi/inheritence/AlternativeSelectedInheritanceTest.java</exclude>
+            <!-- --><exclude>org/jboss/resteasy/test/cdi/inheritence/VanillaInheritanceTest.java</exclude>
+            <!-- --><exclude>org/jboss/resteasy/test/cdi/inheritence/AlternativeVanillaInheritanceTest.java</exclude>
+            <!-- --><exclude>org/jboss/resteasy/test/cdi/inheritence/SpecializedInheritanceTest.java</exclude>
+
+
             <!--
-                <exclude>org/jboss/resteasy/test/validation/**</exclude>
-                <exclude>org/jboss/resteasy/test/validation/**</exclude>
-                <exclude>org/jboss/resteasy/test/validation/**</exclude>
-                <exclude>org/jboss/resteasy/test/validation/**</exclude>
-                <exclude>org/jboss/resteasy/test/validation/**</exclude>
-                <exclude>org/jboss/resteasy/test/validation/**</exclude>
-                <exclude>org/jboss/resteasy/test/validation/**</exclude>
-                <exclude>org/jboss/resteasy/test/validation/**</exclude>
                 <exclude>org/jboss/resteasy/test/validation/**</exclude>
           -->
 
