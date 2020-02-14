@@ -1375,8 +1375,90 @@
             <!-- --><exclude>org/jboss/resteasy/test/core/interceptors/CorsFiltersTest.java</exclude>
 
 
+            <!-- ##############  rx, providers/jackson2, security  ####################
+              dir: org/jboss/resteasy/test/rx
+                    org/jboss/resteasy/test/providers/jackson2
+                    org/jboss/resteasy/test/security
+                     total test
+                     tests ran successfully
+                     tests failed
+            ################################################## -->
+            <!-- fails todo ()
+            --><exclude>org/jboss/resteasy/test/providers/jackson2/JacksonJsonViewTest.java</exclude>
+            <!-- --><exclude>org/jboss/resteasy/test/providers/jackson2/Jackson2Test.java</exclude>
+            <!-- fails todo (Multiple filter doesn't work)
+            --><exclude>org/jboss/resteasy/test/providers/jackson2/jsonfilter/JsonFilterWithInterceptorMultipleFiltersTest.java</exclude>
+            <!-- fails todo (Filter doesn't work)
+            --><exclude>org/jboss/resteasy/test/providers/jackson2/jsonfilter/JsonFilterSuperClassTest.java</exclude>
+            <!-- fails todo (Filter doesn't work)
+            --><exclude>org/jboss/resteasy/test/providers/jackson2/jsonfilter/JsonFilterWithServletConditionalFilterTest.java</exclude>
+            <!-- fails todo (Filter doesn't work)
+            --><exclude>org/jboss/resteasy/test/providers/jackson2/jsonfilter/JsonFilterWithInterceptorConditionalFilterTest.java</exclude>
+            <!-- fails todo (Filter doesn't work)
+            --><exclude>org/jboss/resteasy/test/providers/jackson2/jsonfilter/JsonFilterWithSerlvetFilterTest.java</exclude>
+            <!-- fails todo (Multiple filter doesn't work)
+            --><exclude>org/jboss/resteasy/test/providers/jackson2/jsonfilter/JsonFilterWithServletMultipleFiltersTest.java</exclude>
+            <!-- fails todo (Filter doesn't work)
+            --><exclude>org/jboss/resteasy/test/providers/jackson2/jsonfilter/JsonFilterWithInterceptrTest.java</exclude>
+            <!-- fails todo (Response does not contain UN_KNOWN_ERR)
+            --><exclude>org/jboss/resteasy/test/providers/jackson2/ExceptionMapperMarshalTest.java</exclude>
+            <!-- fails todo (Type property is missing.)
+            --><exclude>org/jboss/resteasy/test/providers/jackson2/ProxyWithGenericReturnTypeJacksonTest.java</exclude>
+            <!-- --><exclude>org/jboss/resteasy/test/providers/jackson2/JacksonJaxbCoexistenceTest.java</exclude>
+            <!-- fails todo (java.util.concurrent.ExecutionException: java.net.BindException: Address already in use)
+            --><exclude>org/jboss/resteasy/test/providers/jackson2/JacksonDatatypeTest.java</exclude>
+            <!-- --><exclude>org/jboss/resteasy/test/providers/jackson2/multipart/Jackson2MultipartFormTest.java</exclude>
+            <!-- fails todo (java.util.concurrent.ExecutionException: java.net.BindException: Address already in use)
+            --><exclude>org/jboss/resteasy/test/providers/jackson2/PreferJacksonOverJsonBClientTest.java</exclude>
+            <!-- --><exclude>org/jboss/resteasy/test/providers/jackson2/CustomJackson2ProviderTest.java</exclude>
+            <!-- --><exclude>org/jboss/resteasy/test/providers/jackson2/whitelist/WhiteListPolymorphicTypeValidatorTest.java</exclude>
+            <!-- --><exclude>org/jboss/resteasy/test/providers/jackson2/whitelist/WhiteListPolymorphicTypeValidatorCatchAllTest.java</exclude>
+
+            <!-- --><exclude>org/jboss/resteasy/test/security/SslServerWithWildcardHostnameCertificateTest.java</exclude>
+            <!-- fails todo (Connection refused)
+            --><exclude>org/jboss/resteasy/test/security/SslServerWithoutCertificateTest.java</exclude>
+
+            <!-- --><exclude>org/jboss/resteasy/test/security/SslSniHostNamesTest.java</exclude>
+            <!-- fails todo (expected:<403> but was:<200>)
+            --><exclude>org/jboss/resteasy/test/security/BasicAuthTest.java</exclude>
+            <!-- --><exclude>org/jboss/resteasy/test/security/SecurityContextTest.java</exclude>
+            <!-- --><exclude>org/jboss/resteasy/test/security/SslServerWithCorrectCertificateTest.java</exclude>
+            <!-- --><exclude>org/jboss/resteasy/test/security/SslServerWithWrongHostnameCertificateTest.java</exclude>
+            <!-- fails todo (java.util.concurrent.ExecutionException: java.net.BindException: Address already in use)
+            --><exclude>org/jboss/resteasy/test/security/TwoSecurityDomainsTest.java</exclude>
+            <!-- fails todo (expected:<403> but was:<200>)
+            --><exclude>org/jboss/resteasy/test/security/CustomForbiddenMessageTest.java</exclude>
+
+            <!-- --><exclude>org/jboss/resteasy/test/rx/RxCompletionStageProxyTest.java</exclude>
+            <!-- fails todo (javax.ws.rs.NotFoundException: HTTP 404 Not Found)
+            --><exclude>org/jboss/resteasy/test/rx/RxCompletionStageAsyncClientAsyncTest.java</exclude>
+            <!-- --><exclude>org/jboss/resteasy/test/rx/RxCompletionStageServerAsyncTest.java</exclude>
+            <!-- --><exclude>org/jboss/resteasy/test/rx/RxCompletionStageTest.java</exclude>
+            <!-- --><exclude>org/jboss/resteasy/test/rx/RxCompletionStageClientAsyncTest.java</exclude>
+            <!-- --><exclude>org/jboss/resteasy/test/rx/RxCompletionStageProxyClientAsyncTest.java</exclude>
+            <!-- --><exclude>org/jboss/resteasy/test/rx/RxCompletionStageProxyServerAsyncTest.java</exclude>
+            <!-- fails todo ()
+            --><exclude>org/jboss/resteasy/test/rx/rxjava2/Rx2SingleTest.java</exclude>
+            <!-- --><exclude>org/jboss/resteasy/test/rx/rxjava2/Rx2SingleProxyTest.java</exclude>
+            <!-- --><exclude>org/jboss/resteasy/test/rx/rxjava2/Rx2ObservableServerAsyncTest.java</exclude>
+            <!-- --><exclude>org/jboss/resteasy/test/rx/rxjava2/Rx2SingleProxyClientAsyncTest.java</exclude>
+            <!-- --><exclude>org/jboss/resteasy/test/rx/rxjava2/Rx2SingleProxyServerAsyncTest.java</exclude>
+            <!-- --><exclude>org/jboss/resteasy/test/rx/rxjava2/Rx2FlowableProxyTest.java</exclude>
+            <!-- --><exclude>org/jboss/resteasy/test/rx/rxjava2/Rx2FlowableTest.java</exclude>
+            <!-- --><exclude>org/jboss/resteasy/test/rx/rxjava2/Rx2FlowableServerAsyncTest.java</exclude>
+            <!-- --><exclude>org/jboss/resteasy/test/rx/rxjava2/Rx2FlowableProxyServerAsyncTest.java</exclude>
+            <!-- --><exclude>org/jboss/resteasy/test/rx/rxjava2/Rx2SingleClientAsyncTest.java</exclude>
+            <!-- --><exclude>org/jboss/resteasy/test/rx/rxjava2/Rx2ObservableSSECompatibilityTest.java</exclude>
+            <!-- --><exclude>org/jboss/resteasy/test/rx/rxjava2/Rx2ObservableProxyTest.java</exclude>
+            <!-- --><exclude>org/jboss/resteasy/test/rx/rxjava2/Rx2SingleServerAsyncTest.java</exclude>
+            <!-- --><exclude>org/jboss/resteasy/test/rx/rxjava2/Rx2FlowableSSECompatibilityTest.java</exclude>
+            <!-- --><exclude>org/jboss/resteasy/test/rx/rxjava2/Rx2ObservableTest.java</exclude>
+
+            <!-- --><exclude>org/jboss/resteasy/test/rx/rxjava2/NoStreamRx2Test.java</exclude>
+
+
             <!--
-                <exclude>org/jboss/resteasy/test/validation/**</exclude>
+                <exclude>org/jboss/resteasy/test/providers/jackson2</exclude>
                 <exclude>org/jboss/resteasy/test/validation/**</exclude>
                 <exclude>org/jboss/resteasy/test/validation/**</exclude>
                 <exclude>org/jboss/resteasy/test/validation/**</exclude>
