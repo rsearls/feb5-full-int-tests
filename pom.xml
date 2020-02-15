@@ -503,9 +503,9 @@
                   8 tests failed
                     - 6 use web.xml
                  ################################################## -->
-            <!-- run passing test -->
+            <!-- run passing test
             <exclude>org/jboss/resteasy/test/core/basic/ByeTest.java</exclude>
-
+        -->
             <exclude>org/jboss/resteasy/test/core/basic/ApplicationPropertiesConfigTest.java</exclude>
             <exclude>org/jboss/resteasy/test/core/basic/PrivateConstructorTest.java</exclude>
             <exclude>org/jboss/resteasy/test/core/basic/CacheControlAnnotationTest.java</exclude>
