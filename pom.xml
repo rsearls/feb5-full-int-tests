@@ -317,7 +317,7 @@
       <version>${version.eclipse.jdt}</version>
     </dependency>
  -->
-    <!-- required -->
+    <!-- required for annotation org/testng/annotations/BeforeClass in arquillian -->
     <dependency>
       <groupId>org.testng</groupId>
       <artifactId>testng</artifactId>
@@ -503,9 +503,9 @@
                   8 tests failed
                     - 6 use web.xml
                  ################################################## -->
-            <!-- run passing test
+            <!-- run passing test -->
             <exclude>org/jboss/resteasy/test/core/basic/ByeTest.java</exclude>
-        -->
+
             <exclude>org/jboss/resteasy/test/core/basic/ApplicationPropertiesConfigTest.java</exclude>
             <exclude>org/jboss/resteasy/test/core/basic/PrivateConstructorTest.java</exclude>
             <exclude>org/jboss/resteasy/test/core/basic/CacheControlAnnotationTest.java</exclude>
@@ -516,13 +516,13 @@
             <!--
               Passes with code change
             --><exclude>org/jboss/resteasy/test/core/basic/InternalDispatcherTest.java</exclude>
-            <!-- Passes requires upgrade to 1.3.0.Alpha1 --><exclude>org/jboss/resteasy/test/core/basic/AnnotationInheritanceGenericsTest.java</exclude>
-            <!-- Passes requires upgrade to 1.3.0.Alpha1 --><exclude>org/jboss/resteasy/test/core/basic/PartialAnnotationResourceTest.java</exclude>
-            <!-- Passes requires upgrade to 1.3.0.Alpha1 --><exclude>org/jboss/resteasy/test/core/basic/AnnotationInheritanceTest.java</exclude>
+            <!-- --><exclude>org/jboss/resteasy/test/core/basic/AnnotationInheritanceGenericsTest.java</exclude>
+            <!-- --><exclude>org/jboss/resteasy/test/core/basic/PartialAnnotationResourceTest.java</exclude>
+            <!-- --><exclude>org/jboss/resteasy/test/core/basic/AnnotationInheritanceTest.java</exclude>
 
-
-            <!-- fails web.xml  --><exclude>org/jboss/resteasy/test/core/basic/InvalidMediaTypeTest.java</exclude>
+            <!-- fails todo (passes but messages) --><exclude>org/jboss/resteasy/test/core/basic/InvalidMediaTypeTest.java</exclude>
             <!-- fails  web.xml --><exclude>org/jboss/resteasy/test/core/basic/ApplicationFilterTest.java</exclude>
+
             <!-- fails  web.xml --> <exclude>org/jboss/resteasy/test/core/basic/NoApplicationSubclassTest.java</exclude>
             <!-- fails  web.xml --><exclude>org/jboss/resteasy/test/core/basic/FileExtensionMappingTest.java</exclude>
             <!-- fails  web.xml --><exclude>org/jboss/resteasy/test/core/basic/AppConfigTest.java</exclude>
@@ -604,11 +604,31 @@
             <exclude>org/jboss/resteasy/test/xxe/YY**</exclude>
             <exclude>org/jboss/resteasy/test/xxe/NamespaceJaxbTest.java</exclude>
             <!-- fails todo (ContextParameters not passed) --><exclude>org/jboss/resteasy/test/xxe/XXEBasicTest.java</exclude>
-            <!-- fails todo (Caused by: java.net.BindException: Address already in use) --><exclude>org/jboss/resteasy/test/xxe/ExternalParameterEntityTest.java</exclude>
-            <!-- fails todo (Caused by: java.net.BindException: Address already in use) --><exclude>org/jboss/resteasy/test/xxe/SecureProcessing2Test.java</exclude>
-            <!-- fails todo (Caused by: java.net.BindException: Address already in use) --><exclude>org/jboss/resteasy/test/xxe/XxeJaxbTest.java</exclude>
-            <!-- fails todo (Caused by: java.net.BindException: Address already in use) --><exclude>org/jboss/resteasy/test/xxe/SecureProcessingTest.java</exclude>
-            <!-- fails todo (Caused by: java.net.BindException: Address already in use) --><exclude>org/jboss/resteasy/test/xxe/XxeSecureProcessingTest.java</exclude>
+
+            <!-- fails todo There are multiple deployed archives.  Different binding addresses not handled
+                    (java.util.concurrent.ExecutionException:
+                    java.net.BindException: Address already in use)
+            --><exclude>org/jboss/resteasy/test/xxe/ExternalParameterEntityTest.java</exclude>
+
+            <!-- fails todo There are multiple deployed archives.  Different binding addresses not handled
+                    (java.util.concurrent.ExecutionException:
+                    java.net.BindException: Address already in use)
+            --><exclude>org/jboss/resteasy/test/xxe/SecureProcessing2Test.java</exclude>
+
+            <!-- fails todo There are multiple deployed archives.  Different binding addresses not handled
+                    (java.util.concurrent.ExecutionException:
+                    java.net.BindException: Address already in use)
+            --><exclude>org/jboss/resteasy/test/xxe/XxeJaxbTest.java</exclude>
+
+            <!-- fails todo There are multiple deployed archives.  Different binding addresses not handled
+                    (java.util.concurrent.ExecutionException:
+                    java.net.BindException: Address already in use)
+            --><exclude>org/jboss/resteasy/test/xxe/SecureProcessingTest.java</exclude>
+
+            <!-- fails todo There are multiple deployed archives.  Different binding addresses not handled
+                    (java.util.concurrent.ExecutionException:
+                    java.net.BindException: Address already in use)
+            --><exclude>org/jboss/resteasy/test/xxe/XxeSecureProcessingTest.java</exclude>
 
             <!-- ############## summary interceptor ####################
                   dir: org/jboss/resteasy/test/interceptor
@@ -633,8 +653,17 @@
             <!-- fails todo (test does not deploy. Not handling @InSequence ??)  --><exclude>org/jboss/resteasy/test/interceptor/DynamicFeatureTest.java</exclude>
             <!-- fails todo ( https://github.com/quarkusio/quarkus/issues/7084 quarkus-arquillian does
                   call @Before unless @RunAsClient is present) --><exclude>org/jboss/resteasy/test/interceptor/StreamCloseTest.java</exclude>
-            <!-- fails todo (Caused by: java.net.BindException: Address already in use) --> <exclude>org/jboss/resteasy/test/interceptor/gzip/NotAllowGzipOnServerNotAllowGzipOnClientTest.java</exclude>
-            <!-- fails todo (Caused by: java.net.BindException: Address already in use) --><exclude>org/jboss/resteasy/test/interceptor/gzip/NotAllowGzipOnServerAllowGzipOnClientTest.java</exclude>
+
+            <!-- fails todo There are multiple deployed archives.  Different binding addresses not handled
+                    (java.util.concurrent.ExecutionException:
+                    java.net.BindException: Address already in use)
+            --><exclude>org/jboss/resteasy/test/interceptor/gzip/NotAllowGzipOnServerNotAllowGzipOnClientTest.java</exclude>
+
+            <!-- fails todo There are multiple deployed archives.  Different binding addresses not handled
+                    (java.util.concurrent.ExecutionException:
+                    java.net.BindException: Address already in use)
+            --><exclude>org/jboss/resteasy/test/interceptor/gzip/NotAllowGzipOnServerAllowGzipOnClientTest.java</exclude>
+
             <!-- fails todo (test is odd) --><exclude>org/jboss/resteasy/test/interceptor/gzip/AllowGzipOnServerNotAllowGzipOnClientTest.java</exclude>
             <!-- fails todo (test is odd) --><exclude>org/jboss/resteasy/test/interceptor/gzip/AllowGzipOnServerAllowGzipOnClientTest.java</exclude>
             <!-- required for compile --><exclude>org/jboss/resteasy/test/client/ClientTestBase.java</exclude>
@@ -666,7 +695,12 @@
             <exclude>org/jboss/resteasy/test/response/ResponseHeaderTest.java</exclude>
             <exclude>org/jboss/resteasy/test/response/HttpRequestParameterInjectorTest.java</exclude>
             <exclude>org/jboss/resteasy/test/response/ProduceConsumeTest.java</exclude>
-            <!-- fails todo (Caused by: java.net.BindException: Address already in use)  --><exclude>org/jboss/resteasy/test/response/ResponseTrimmingTest.java</exclude>
+
+            <!-- fails todo There are multiple deployed archives.  Different binding addresses not handled
+                    (java.util.concurrent.ExecutionException:
+                    java.net.BindException: Address already in use)
+            --><exclude>org/jboss/resteasy/test/response/ResponseTrimmingTest.java</exclude>
+
             <!-- fails todo  --><exclude>org/jboss/resteasy/test/response/HeadContentLengthTest.java</exclude>
             <!-- fail todo (no errors no tests run) --><exclude>org/jboss/resteasy/test/response/VariantsTest.java</exclude>
 
@@ -738,14 +772,15 @@
               ################################################## -->
             <exclude>org/jboss/resteasy/test/core/smoke/ResourceWithInterfaceTest.java</exclude>
             <exclude>org/jboss/resteasy/test/core/smoke/ResourceWithMultipleInterfacesTest.java</exclude>
-            <!-- fails todo (Caused by: java.net.BindException: Address already in use) --><exclude>org/jboss/resteasy/test/core/smoke/WireSmokeTest.java</exclude>
+
+            <!-- fails todo There are multiple deployed archives.  Different binding addresses not handled
+                    (java.util.concurrent.ExecutionException:
+                    java.net.BindException: Address already in use)
+            --><exclude>org/jboss/resteasy/test/core/smoke/WireSmokeTest.java</exclude>
+
             <exclude>org/jboss/resteasy/test/client/ClientDynamicFeaturesTest.java</exclude>
-            <!-- fails todo
-                  java.util.ServiceConfigurationError:
-                    org.apache.logging.log4j.spi.Provider:
-                    org.apache.logging.log4j.core.impl.Log4jProvider
-                  not a subtype
-             --> <exclude>org/jboss/resteasy/test/client/ClientBuilderTest.java</exclude>
+            <!-- fails todo (expected:<1> but was:<0>)
+            --><exclude>org/jboss/resteasy/test/client/ClientBuilderTest.java</exclude>
 
             <exclude>org/jboss/resteasy/test/client/NullEntityTest.java</exclude>
             <exclude>org/jboss/resteasy/test/client/AbortMessageTest.java</exclude>
@@ -757,12 +792,7 @@
                 remote+http://localhost:9990. The connection failed
             --><exclude>org/jboss/resteasy/test/client/EntityBufferingInFileTest.java</exclude>
 
-            <!-- fails todo
-                  java.util.ServiceConfigurationError:
-                    org.apache.logging.log4j.spi.Provider:
-                    org.apache.logging.log4j.core.impl.Log4jProvider
-                  not a subtype
-             --><exclude>org/jboss/resteasy/test/client/InputStreamTest.java</exclude>
+            <!-- --><exclude>org/jboss/resteasy/test/client/InputStreamTest.java</exclude>
 
             <exclude>org/jboss/resteasy/test/client/PrimitiveTest.java</exclude>
             <exclude>org/jboss/resteasy/test/client/SmokeParamTest.java</exclude>
@@ -774,29 +804,16 @@
 
             <exclude>org/jboss/resteasy/test/client/RedirectTest.java</exclude>
             <exclude>org/jboss/resteasy/test/client/ClientExecutorShutdownTest.java</exclude>
-            <!-- fails todo
-                  java.util.ServiceConfigurationError:
-                    org.apache.logging.log4j.spi.Provider:
-                    org.apache.logging.log4j.core.impl.Log4jProvider
-                  not a subtype
-             --><exclude>org/jboss/resteasy/test/client/ParameterListTest.java</exclude>
+            <!-- --><exclude>org/jboss/resteasy/test/client/ParameterListTest.java</exclude>
+
             <exclude>org/jboss/resteasy/test/client/IndirectInvocationTest.java</exclude>
             <exclude>org/jboss/resteasy/test/client/LinkHeaderTest.java</exclude>
             <exclude>org/jboss/resteasy/test/client/SyncInvokeTest.java</exclude>
-            <!-- fails todo
-                  java.util.ServiceConfigurationError:
-                    org.apache.logging.log4j.spi.Provider:
-                    org.apache.logging.log4j.core.impl.Log4jProvider
-                  not a subtype
-             --><exclude>org/jboss/resteasy/test/client/ClientResponseRedirectTest.java</exclude>
+            <!-- fails todo (expected:<303> but was:<404>)
+          --><exclude>org/jboss/resteasy/test/client/ClientResponseRedirectTest.java</exclude>
 
             <exclude>org/jboss/resteasy/test/client/TimeoutTest.java</exclude>
-            <!-- fails todo
-                  java.util.ServiceConfigurationError:
-                    org.apache.logging.log4j.spi.Provider:
-                    org.apache.logging.log4j.core.impl.Log4jProvider
-                  not a subtype
-             --><exclude>org/jboss/resteasy/test/client/AsyncTimeoutExceptionsTest.java</exclude>
+            <!-- --><exclude>org/jboss/resteasy/test/client/AsyncTimeoutExceptionsTest.java</exclude>
 
             <exclude>org/jboss/resteasy/test/client/AsyncInvokeTest.java</exclude>
             <!-- fails todo
@@ -804,14 +821,9 @@
                     org.apache.logging.log4j.spi.Provider:
                     org.apache.logging.log4j.core.impl.Log4jProvider
                   not a subtype
-             --><exclude>org/jboss/resteasy/test/client/InContainerClientBenchTest.java</exclude>
+          --><exclude>org/jboss/resteasy/test/client/InContainerClientBenchTest.java</exclude>
 
-            <!-- fails todo
-                  java.util.ServiceConfigurationError:
-                    org.apache.logging.log4j.spi.Provider:
-                    org.apache.logging.log4j.core.impl.Log4jProvider
-                  not a subtype
-            --><exclude>org/jboss/resteasy/test/client/ChunkedTransferEncodingTest.java</exclude>
+            <!-- --><exclude>org/jboss/resteasy/test/client/ChunkedTransferEncodingTest.java</exclude>
 
             <exclude>org/jboss/resteasy/test/client/InputStreamResourceTest.java</exclude>
             <exclude>org/jboss/resteasy/test/client/ClientCacheTest.java</exclude>
@@ -820,7 +832,7 @@
                     org.apache.logging.log4j.spi.Provider:
                     org.apache.logging.log4j.core.impl.Log4jProvider
                   not a subtype
-           --> <exclude>org/jboss/resteasy/test/client/TraceTest.java</exclude>
+            --><exclude>org/jboss/resteasy/test/client/TraceTest.java</exclude>
 
             <!-- fails todo (java.io.IOException:
                 java.net.ConnectException: WFLYPRT0053: Could not connect to
@@ -845,12 +857,8 @@
 
             <exclude>org/jboss/resteasy/test/client/proxy/MediaTypeCaseSensitivityTest.java</exclude>
 
-            <!-- fails todo
-                java.util.ServiceConfigurationError:
-                    org.apache.logging.log4j.spi.Provider:
-                    org.apache.logging.log4j.core.impl.Log4jProvider
-                  not a subtype
-           --><exclude>org/jboss/resteasy/test/client/proxy/ResponseObjectTest.java</exclude>
+            <!-- --><exclude>org/jboss/resteasy/test/client/proxy/ResponseObjectTest.java</exclude>
+
             <exclude>org/jboss/resteasy/test/client/proxy/ProxyWithGenericReturnTypeTest.java</exclude>
             <exclude>org/jboss/resteasy/test/client/proxy/ProxyNullInputStreamTest.java</exclude>
             <exclude>org/jboss/resteasy/test/client/proxy/UnauthorizedHttpCodeTest.java</exclude>
@@ -861,6 +869,7 @@
             <exclude>org/jboss/resteasy/test/client/proxy/ContextTest.java</exclude>
             <exclude>org/jboss/resteasy/test/client/proxy/SubResourceLocatorProxyTest.java</exclude>
             <!-- fails todo  --><exclude>org/jboss/resteasy/test/client/proxy/EncodedPathProxyTest.java</exclude>
+
             <exclude>org/jboss/resteasy/test/client/proxy/NullEntityProxyTest.java</exclude>
 
             <exclude>org/jboss/resteasy/test/client/proxy/ProxyCastingSimpleTest.java</exclude>
@@ -876,12 +885,9 @@
                   not a subtype
            --><exclude>org/jboss/resteasy/test/client/exception/ExceptionBufferingTest.java</exclude>
 
-            <!-- fails todo
-                java.util.ServiceConfigurationError:
-                    org.apache.logging.log4j.spi.Provider:
-                    org.apache.logging.log4j.core.impl.Log4jProvider
-                  not a subtype
+            <!-- fails todo ( expected:<30> but was:<0>)
            --><exclude>org/jboss/resteasy/test/client/other/ApacheHttpClient43Test.java</exclude>
+
             <exclude>org/jboss/resteasy/test/client/other/CustomHttpClientEngineTest.java</exclude>
 
 
@@ -890,9 +896,9 @@
                 dir: org/jboss/resteasy/test/crypto
                      org/jboss/resteasy/test/providers
                      org/jboss/resteasy/test/validation
-                       total test
-                       tests ran successfully
-                       tests failed
+                       132 total test
+                       75 tests ran successfully
+                       57 tests failed
               ################################################## -->
             <!-- fails todo (contextParams not passed)
              --><exclude>org/jboss/resteasy/test/crypto/SigningTest.java</exclude>
@@ -902,14 +908,19 @@
             --> <exclude>org/jboss/resteasy/test/crypto/CryptoTest.java</exclude>
             <!-- fails todo (javax.ws.rs.InternalServerErrorException: HTTP 500 Internal Server Error)
             --> <exclude>org/jboss/resteasy/test/crypto/PKCS7SignatureSmokeTest.java</exclude>
-            <!-- fails todo (java.util.concurrent.ExecutionException: java.net.BindException: Address already in use)
+
+            <!-- fails todo There are multiple deployed archives.  Different binding addresses not handled
+                    (java.util.concurrent.ExecutionException:
+                    java.net.BindException: Address already in use)
             --><exclude>org/jboss/resteasy/test/providers/html/HtmlSanitizerOptionalTest.java</exclude>
+
             <!-- fail todo
                 known issue: https://github.com/quarkusio/quarkus-images/issues/13
                 java.lang.NoSuchMethodError: org.eclipse.aether.transfer.TransferResource.
                 <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/io/File;
                 Lorg/eclipse/aether/RequestTrace;)V
             --><exclude>org/jboss/resteasy/test/providers/html/HeadersInViewResponseTest.java</exclude>
+
             <!-- fail todo (java.lang.AssertionError: expected:<200> but was:<500>)
             --><exclude>org/jboss/resteasy/test/providers/plain/CharsetTest.java</exclude>
             <!-- fails todo (test does not use @RunAsClient)
@@ -984,8 +995,12 @@
                         at io.quarkus.arc.processor.BeanDeployment.init(BeanDeployment.java:224)
                         ... 14 more
            --><exclude>org/jboss/resteasy/test/providers/priority/ProviderPriorityProvidersInApplicationTest.java</exclude>
-            <!-- fails todo (java.util.concurrent.ExecutionException: java.net.BindException: Address already in use)
+
+            <!-- fails todo There are multiple deployed archives.  Different binding addresses not handled
+                    (java.util.concurrent.ExecutionException:
+                    java.net.BindException: Address already in use)
             --><exclude>org/jboss/resteasy/test/providers/jsonb/basic/JsonBindingAnnotationsJacksonTest.java</exclude>
+
             <!-- fails todo (arquillian annotation related issue)
                 org.jboss.arquillian.container.test.impl.client.deployment.ValidationException:
                 DeploymentScenario contains a target (jbossas-managed-encoding) not matching
@@ -1009,12 +1024,16 @@
             <!-- fails todo (javax.ws.rs.InternalServerErrorException: HTTP 500 Internal Server Error)
             --><exclude>org/jboss/resteasy/test/providers/multipart/EmbeddedMultipartTest.java</exclude>
             <!-- --><exclude>org/jboss/resteasy/test/providers/multipart/InputPartDefaultContentTypeEncodingOverwriteTest.java</exclude>
-            <!--  --><exclude>org/jboss/resteasy/test/providers/multipart/EncodingMimeMultipartFormProviderTest.java</exclude>
+            <!-- --><exclude>org/jboss/resteasy/test/providers/multipart/EncodingMimeMultipartFormProviderTest.java</exclude>
             <!-- --><exclude>org/jboss/resteasy/test/providers/multipart/HeaderFlushedOutputStreamTest.java</exclude>
             <!-- fails todo (execution error)
              --><exclude>org/jboss/resteasy/test/providers/multipart/InputPartDefaultContentTypeWildcardOverwriteNewInterceptorTest.java</exclude>
-            <!-- fails todo (java.util.concurrent.ExecutionException: java.net.BindException: Address already in use)
+
+            <!-- fails todo There are multiple deployed archives.  Different binding addresses not handled
+                    (java.util.concurrent.ExecutionException:
+                    java.net.BindException: Address already in use)
             --><exclude>org/jboss/resteasy/test/providers/multipart/InputPartDefaultCharsetOverwriteTest.java</exclude>
+
             <!-- --><exclude>org/jboss/resteasy/test/providers/multipart/ContextProvidersTest.java</exclude>
             <!-- --><exclude>org/jboss/resteasy/test/providers/multipart/GenericTypeMultipartTest.java</exclude>
             <!-- --><exclude>org/jboss/resteasy/test/providers/multipart/ProxyTest.java</exclude>
@@ -1052,8 +1071,12 @@
             <!-- --><exclude>org/jboss/resteasy/test/providers/datasource/BigSmallDataSourceTest.java</exclude>
             <!-- --><exclude>org/jboss/resteasy/test/providers/map/MapProviderBuiltInTest.java</exclude>
             <!-- --><exclude>org/jboss/resteasy/test/providers/map/MapProviderTest.java</exclude>
-            <!-- fails todo (java.util.concurrent.ExecutionException: java.net.BindException: Address already in use)
+
+            <!-- fails todo There are multiple deployed archives.  Different binding addresses not handled
+                    (java.util.concurrent.ExecutionException:
+                    java.net.BindException: Address already in use)
             --><exclude>org/jboss/resteasy/test/providers/jaxb/KeepCharsetTest.java</exclude>
+
             <!-- fails todo (deployment error)
             --><exclude>org/jboss/resteasy/test/providers/jaxb/XmlHeaderTest.java</exclude>
             <!-- --><exclude>org/jboss/resteasy/test/providers/jaxb/CollectionCoreTest.java</exclude>
@@ -1098,8 +1121,12 @@
             <!-- --><exclude>org/jboss/resteasy/test/providers/jaxb/InheritanceTest.java</exclude>
             <!-- --><exclude>org/jboss/resteasy/test/providers/noproduces/ProviderWithNoProducesTest.java</exclude>
             <!-- --><exclude>org/jboss/resteasy/test/providers/custom/CollectionProviderTest.java</exclude>
-            <!-- fails todo (java.util.concurrent.ExecutionException: java.net.BindException: Address already in use)
+
+            <!-- fails todo There are multiple deployed archives.  Different binding addresses not handled
+                    (java.util.concurrent.ExecutionException:
+                    java.net.BindException: Address already in use)
             --><exclude>org/jboss/resteasy/test/providers/custom/ReaderWriterTest.java</exclude>
+
             <!-- --><exclude>org/jboss/resteasy/test/providers/custom/RetrieveRegisteredClassesTest.java</exclude>
             <!-- --><exclude>org/jboss/resteasy/test/providers/custom/ResponseFilterChangeStatusTest.java</exclude>
             <!-- --><exclude>org/jboss/resteasy/test/providers/custom/ProviderContextInjectionTest.java</exclude>
@@ -1124,21 +1151,42 @@
             <!-- --><exclude>org/jboss/resteasy/test/providers/custom/ResponseContainerFilterTest.java</exclude>
             <!-- fails todo (java.lang.NullPointerException)
             --><exclude>org/jboss/resteasy/test/validation/ValidateOnExecutionTest.java</exclude>
-            <!-- fails todo (java.util.concurrent.ExecutionException: java.net.BindException: Address already in use)
+
+            <!-- fails todo There are multiple deployed archives.  Different binding addresses not handled
+                    (java.util.concurrent.ExecutionException:
+                    java.net.BindException: Address already in use)
             --><exclude>org/jboss/resteasy/test/validation/ValidationComplexTest.java</exclude>
-            <!-- fails todo (java.util.concurrent.ExecutionException: java.net.BindException: Address already in use)
+
+            <!-- fails todo There are multiple deployed archives.  Different binding addresses not handled
+                    (java.util.concurrent.ExecutionException:
+                    java.net.BindException: Address already in use)
             --><exclude>org/jboss/resteasy/test/validation/ValidationExceptionsTest.java</exclude>
+
             <!-- --><exclude>org/jboss/resteasy/test/validation/ValidationCoreTest.java</exclude>
             <!-- --><exclude>org/jboss/resteasy/test/validation/ValidationXMLTest.java</exclude>
-            <!-- fails todo (java.util.concurrent.ExecutionException: java.net.BindException: Address already in use)
+
+            <!-- fails todo There are multiple deployed archives.  Different binding addresses not handled
+                    (java.util.concurrent.ExecutionException:
+                    java.net.BindException: Address already in use)
             --><exclude>org/jboss/resteasy/test/validation/PathSuppressionTest.java</exclude>
+
             <!----><exclude>org/jboss/resteasy/test/validation/ContextProvidersNewClientTest.java</exclude>
-            <!-- fails todo (java.util.concurrent.ExecutionException: java.net.BindException: Address already in use)
+
+            <!-- fails todo There are multiple deployed archives.  Different binding addresses not handled
+                    (java.util.concurrent.ExecutionException:
+                    java.net.BindException: Address already in use)
             --><exclude>org/jboss/resteasy/test/validation/ValidationJaxbTest.java</exclude>
-            <!-- fails todo (java.util.concurrent.ExecutionException: java.net.BindException: Address already in use)
+
+            <!-- fails todo There are multiple deployed archives.  Different binding addresses not handled
+                    (java.util.concurrent.ExecutionException:
+                    java.net.BindException: Address already in use)
             --><exclude>org/jboss/resteasy/test/validation/ResteasyViolationExceptionRepresentationTest.java</exclude>
-            <!-- fails todo (java.util.concurrent.ExecutionException: java.net.BindException: Address already in use)
+
+            <!-- fails todo There are multiple deployed archives.  Different binding addresses not handled
+                    (java.util.concurrent.ExecutionException:
+                    java.net.BindException: Address already in use)
             --><exclude>org/jboss/resteasy/test/validation/ValidationNullErrorValueTest.java</exclude>
+
             <!-- --><exclude>org/jboss/resteasy/test/validation/GetterReturnValueNotValidatedTest.java</exclude>
             <!-- --><exclude>org/jboss/resteasy/test/validation/ValidationSurpressPathDefaultTest.java</exclude>
             <!-- --><exclude>org/jboss/resteasy/test/validation/ValidationOnGetterTest.java</exclude>
@@ -1174,20 +1222,27 @@
             <!-- --><exclude>org/jboss/resteasy/test/validation/cdi/ValidationSessionBeanTest.java</exclude>
             <!-- --><exclude>org/jboss/resteasy/test/validation/cdi/CDIValidationSessionBeanTest.java</exclude>
             <!-- --><exclude>org/jboss/resteasy/test/validation/cdi/CDIValidationCoreTest.java</exclude>
-            <!-- fails todo (java.util.concurrent.ExecutionException: java.net.BindException: Address already in use)
+
+            <!-- fails todo There are multiple deployed archives.  Different binding addresses not handled
+                    (java.util.concurrent.ExecutionException:
+                    java.net.BindException: Address already in use)
             --><exclude>org/jboss/resteasy/test/validation/cdi/MultipleWarTest.java</exclude>
             <!-- --><exclude>org/jboss/resteasy/test/validation/cdi/ApplicationScopeValidationTest.java</exclude>
 
 
             <!-- ############## resource  ####################
               dir: org/jboss/resteasy/test/resource
-                     total test
-                     tests ran successfully
-                     tests failed
+                     85 total test
+                     62 tests ran successfully
+                     23 tests failed
             ################################################## -->
             <!----><exclude>org/jboss/resteasy/test/resource/basic/ResourceLocatorTest.java</exclude>
-            <!-- fails todo (java.util.concurrent.ExecutionException: java.net.BindException: Address already in use)
+
+            <!-- fails todo There are multiple deployed archives.  Different binding addresses not handled
+                    (java.util.concurrent.ExecutionException:
+                    java.net.BindException: Address already in use)
             --><exclude>org/jboss/resteasy/test/resource/basic/MediaTypeFromMessageBodyWriterTest.java</exclude>
+
             <!-- --><exclude>org/jboss/resteasy/test/resource/basic/MultiInterfaceResLocatorTest.java</exclude>
             <!-- --><exclude>org/jboss/resteasy/test/resource/basic/SpecialResourceTest.java</exclude>
             <!-- fails todo (expected expected:<200> but was:<500>)
@@ -1224,15 +1279,23 @@
             <!-- --><exclude>org/jboss/resteasy/test/resource/basic/MultipleAcceptHeaderTest.java</exclude>
             <!-- --><exclude>org/jboss/resteasy/test/resource/basic/MatchedResourceTest.java</exclude>
             <!-- --><exclude>org/jboss/resteasy/test/resource/basic/MultipleEndpointsWarningTest.java</exclude>
-            <!-- fails todo (java.util.concurrent.ExecutionException: java.net.BindException: Address already in use)
+
+            <!-- fails todo There are multiple deployed archives.  Different binding addresses not handled
+                    (java.util.concurrent.ExecutionException:
+                    java.net.BindException: Address already in use)
             --><exclude>org/jboss/resteasy/test/resource/basic/UriInfoTest.java</exclude>
+
             <!-- --><exclude>org/jboss/resteasy/test/resource/basic/ClassLevelMediaTypeTest.java</exclude>
             <!-- --><exclude>org/jboss/resteasy/test/resource/basic/GenericResourceTest.java</exclude>
             <!-- --><exclude>org/jboss/resteasy/test/resource/basic/ScanTest.java</exclude>
             <!-- --><exclude>org/jboss/resteasy/test/resource/basic/MediaTypeNegotiationTest.java</exclude>
             <!-- --><exclude>org/jboss/resteasy/test/resource/basic/SubResourceLocatorTest.java</exclude>
-            <!-- fails todo (java.util.concurrent.ExecutionException: java.net.BindException: Address already in use)
+
+            <!-- fails todo There are multiple deployed archives.  Different binding addresses not handled
+                    (java.util.concurrent.ExecutionException:
+                    java.net.BindException: Address already in use)
             --><exclude>org/jboss/resteasy/test/resource/basic/DefaultCharsetTest.java</exclude>
+
             <!-- --><exclude>org/jboss/resteasy/test/resource/basic/GenericEntityTest.java</exclude>
             <!-- fails todo (known issue expected:<200> but was:<500>)
             --><exclude>org/jboss/resteasy/test/resource/basic/DefaultMediaTypeTest.java</exclude>
@@ -1242,7 +1305,7 @@
             --><exclude>org/jboss/resteasy/test/resource/basic/MediaTypeNegotiationClientQualityTest.java</exclude>
             <!-- fails todo (expected:<[y]> but was:<[html]>)
             --><exclude>org/jboss/resteasy/test/resource/basic/MediaTypeNegotiationServerQualityTest.java</exclude>
-            <!-- fails tod (expected:<200> but was:<500>)
+            <!-- fails todo (expected:<200> but was:<500>)
             --><exclude>org/jboss/resteasy/test/resource/basic/ParameterSubResTest.java</exclude>
             <!-- --><exclude>org/jboss/resteasy/test/resource/param/SerializableWithParametersTest.java</exclude>
             <!-- --><exclude>org/jboss/resteasy/test/resource/param/FormParamTest.java</exclude>
@@ -1336,10 +1399,14 @@
             <!-- --><exclude>org/jboss/resteasy/test/resource/path/EncodedPathTest.java</exclude>
             <!-- --><exclude>org/jboss/resteasy/test/resource/path/PathLimitedTest.java</exclude>
             <!-- --><exclude>org/jboss/resteasy/test/resource/path/LocatorWithClassHierarchyTest.java</exclude>
-            <!-- fails todo (java.util.concurrent.ExecutionException: java.net.BindException: Address already in use)
+
+            <!-- fails todo There are multiple deployed archives.  Different binding addresses not handled
+                    (java.util.concurrent.ExecutionException:
+                    java.net.BindException: Address already in use)
             --><exclude>org/jboss/resteasy/test/resource/path/UriParamsWithLocatorTest.java</exclude>
+
             <!-- --><exclude>org/jboss/resteasy/test/resource/path/PathParamTest.java</exclude>
-            <!----><exclude>org/jboss/resteasy/test/resource/path/ResourceLocatorRegexNonCapturingGroupTest.java</exclude>
+            <!-- --><exclude>org/jboss/resteasy/test/resource/path/ResourceLocatorRegexNonCapturingGroupTest.java</exclude>
             <!-- --><exclude>org/jboss/resteasy/test/resource/constructor/ResourceConstructorParamsTest.java</exclude>
             <!-- --><exclude>org/jboss/resteasy/test/resource/patch/PatchErrorHandlingTest.java</exclude>
             <!-- --><exclude>org/jboss/resteasy/test/resource/patch/StudentPatchTest.java</exclude>
@@ -1353,21 +1420,29 @@
                     org/jboss/resteasy/core/servlet
                     org/jboss/resteasy/core/encoding
                     org/jboss/resteasy/core/interceptors
-                     total test
-                     tests ran successfully
-                     tests failed
+                     23 total test
+                     13 tests ran successfully
+                     10 tests failed
             ################################################## -->
             <!-- fails todo (<0> was less than <1>)
             --><exclude>org/jboss/resteasy/test/warning/SubResourceWarningTest.java</exclude>
-            <!-- fails todo (java.util.concurrent.ExecutionException: java.net.BindException: Address already in use)
+
+            <!-- fails todo There are multiple deployed archives.  Different binding addresses not handled
+                    (java.util.concurrent.ExecutionException:
+                    java.net.BindException: Address already in use)
             --><exclude>org/jboss/resteasy/test/core/logging/DebugLoggingTest.java</exclude>
+
             <!-- --><exclude>org/jboss/resteasy/test/core/ResteasyJAXRSImplTest.java</exclude>
             <!-- --><exclude>org/jboss/resteasy/test/core/spi/ResourceClassProcessorNotAppliedTest.java</exclude>
             <!-- --><exclude>org/jboss/resteasy/test/core/spi/ResourceClassProcessorPriorityTest.java</exclude>
             <!-- fails todo (<0> was less than <1>)
             --><exclude>org/jboss/resteasy/test/core/spi/ResourceClassProcessorErrorTest.java</exclude>
-            <!-- fails todo (java.util.concurrent.ExecutionException: java.net.BindException: Address already in use)
+
+            <!-- fails todo There are multiple deployed archives.  Different binding addresses not handled
+                    (java.util.concurrent.ExecutionException:
+                    java.net.BindException: Address already in use)
             --><exclude>org/jboss/resteasy/test/core/spi/ResourceClassProcessorBasicTest.java</exclude>
+
             <!-- fails todo (address issue   java.io.FileNotFoundException: http://localhost:8081//test)
             --><exclude>org/jboss/resteasy/test/core/servlet/UndertowTest.java</exclude>
             <!-- fails todo (java.lang.RuntimeException: java.lang.RuntimeException: RESTEASY003190:
@@ -1399,9 +1474,9 @@
               dir: org/jboss/resteasy/test/rx
                     org/jboss/resteasy/test/providers/jackson2
                     org/jboss/resteasy/test/security
-                     total test
-                     tests ran successfully
-                     tests failed
+                     51 total test
+                     32 tests ran successfully
+                     19 tests failed
             ################################################## -->
             <!-- fails todo ()
             --><exclude>org/jboss/resteasy/test/providers/jackson2/JacksonJsonViewTest.java</exclude>
@@ -1425,11 +1500,19 @@
             <!-- fails todo (Type property is missing.)
             --><exclude>org/jboss/resteasy/test/providers/jackson2/ProxyWithGenericReturnTypeJacksonTest.java</exclude>
             <!-- --><exclude>org/jboss/resteasy/test/providers/jackson2/JacksonJaxbCoexistenceTest.java</exclude>
-            <!-- fails todo (java.util.concurrent.ExecutionException: java.net.BindException: Address already in use)
+
+            <!-- fails todo There are multiple deployed archives.  Different binding addresses not handled
+                    (java.util.concurrent.ExecutionException:
+                    java.net.BindException: Address already in use)
             --><exclude>org/jboss/resteasy/test/providers/jackson2/JacksonDatatypeTest.java</exclude>
+
             <!-- --><exclude>org/jboss/resteasy/test/providers/jackson2/multipart/Jackson2MultipartFormTest.java</exclude>
-            <!-- fails todo (java.util.concurrent.ExecutionException: java.net.BindException: Address already in use)
+
+            <!-- fails todo There are multiple deployed archives.  Different binding addresses not handled
+                    (java.util.concurrent.ExecutionException:
+                    java.net.BindException: Address already in use)
             --><exclude>org/jboss/resteasy/test/providers/jackson2/PreferJacksonOverJsonBClientTest.java</exclude>
+
             <!-- --><exclude>org/jboss/resteasy/test/providers/jackson2/CustomJackson2ProviderTest.java</exclude>
             <!-- --><exclude>org/jboss/resteasy/test/providers/jackson2/whitelist/WhiteListPolymorphicTypeValidatorTest.java</exclude>
             <!-- --><exclude>org/jboss/resteasy/test/providers/jackson2/whitelist/WhiteListPolymorphicTypeValidatorCatchAllTest.java</exclude>
@@ -1444,8 +1527,12 @@
             <!-- --><exclude>org/jboss/resteasy/test/security/SecurityContextTest.java</exclude>
             <!-- --><exclude>org/jboss/resteasy/test/security/SslServerWithCorrectCertificateTest.java</exclude>
             <!-- --><exclude>org/jboss/resteasy/test/security/SslServerWithWrongHostnameCertificateTest.java</exclude>
-            <!-- fails todo (java.util.concurrent.ExecutionException: java.net.BindException: Address already in use)
+
+            <!-- fails todo There are multiple deployed archives.  Different binding addresses not handled
+                    (java.util.concurrent.ExecutionException:
+                    java.net.BindException: Address already in use)
             --><exclude>org/jboss/resteasy/test/security/TwoSecurityDomainsTest.java</exclude>
+
             <!-- fails todo (expected:<403> but was:<200>)
             --><exclude>org/jboss/resteasy/test/security/CustomForbiddenMessageTest.java</exclude>
 
@@ -1474,14 +1561,16 @@
             <!-- --><exclude>org/jboss/resteasy/test/rx/rxjava2/Rx2FlowableSSECompatibilityTest.java</exclude>
             <!-- --><exclude>org/jboss/resteasy/test/rx/rxjava2/Rx2ObservableTest.java</exclude>
             <!-- --><exclude>org/jboss/resteasy/test/rx/rxjava2/NoStreamRx2Test.java</exclude>
+            <!-- fails todo (arquillian annotation)
+            --><exclude>org/jboss/resteasy/test/rx/rxjava2/Rx2ObservableProxyServerAsyncTest.java</exclude>
 
 
             <!-- ############## injection, form  ####################
               dir: org/jboss/resteasy/test/injection
                    org/jboss/resteasy/test/form
-                     total test
-                     tests ran successfully
-                     tests failed
+                     12 total test
+                     12 tests ran successfully
+                      0tests failed
             ################################################## -->
             <!-- --><exclude>org/jboss/resteasy/test/injection/PostConstructInjectionTest.java</exclude>
             <!-- --><exclude>org/jboss/resteasy/test/form/FormEntityTest.java</exclude>
@@ -1499,9 +1588,9 @@
 
             <!-- ############## cache, microprofile  ####################
               dir: org/jboss/resteasy/test/cache
-                     total test
-                     tests ran successfully
-                     tests failed
+                     7 total test
+                     4 tests ran successfully
+                     3 tests failed
             ################################################## -->
             <!-- --><exclude>org/jboss/resteasy/test/cache/ServerCacheInterceptorTest.java</exclude>
 
@@ -1519,9 +1608,9 @@
 
             <!-- ############## cdi  ####################
               dir: org/jboss/resteasy/test/cdi
-                     total test
-                     tests ran successfully
-                     tests failed
+                     38 total test
+                     29 tests ran successfully
+                      9 tests failed
             ################################################## -->
             <!-- --><exclude>org/jboss/resteasy/test/cdi/injection/InjectionTest.java</exclude>
             <!-- --><exclude>org/jboss/resteasy/test/cdi/injection/InjectionJpaEnumTypeTest.java</exclude>
